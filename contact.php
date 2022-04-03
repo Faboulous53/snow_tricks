@@ -42,7 +42,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="contact.html">
+                                <a href="contact.php">
                                     Nous Contacter
                                 </a>
                             </li>
