@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "./node_modules/.bin/webpack --mode=production",
+    "build": ".\\node_modules\\.bin\\webpack --mode=production",
     "watch": "node_modules\\.bin\\webpack serve --open --mode=development"
   },
   "devDependencies": {
