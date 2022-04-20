@@ -11,7 +11,7 @@
                 <nav class="main-navigation">
                     <ul>
                         <li>
-                            <a href="index.html">
+                            <a href="index.php">
                                 Accueil
                             </a>
                         </li>
@@ -29,6 +29,14 @@
                                 <li>
                                     <a href="#">Villa</a>
                                 </li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="contact.php">
+                                Formulaire
+                            </a>
+                            <ul>
+                                <a href="form.php">Création bien</a>
                             </ul>
                         </li>
                         <li>

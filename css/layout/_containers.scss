@@ -10,6 +10,11 @@
     }
 }
 
+.containerForm {
+    display: inline;
+    justify-content: flex-start;
+}
+
 @include mixins.desktop-large {
     .container {
         width: 992px;
