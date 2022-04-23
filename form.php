@@ -18,7 +18,7 @@
 <div class="container">
     <div style="flex-direction: column">
         <h1>Formulaire de création de bien</h1>
-         <form class="needs-validation text-">
+         <form action= "form.php" method="post" class="needs-validation text-">
             <div class="form-row" class="position-relative">
                 <div class="col-md-4 mb-3 ">
                 <label for="name">Nom de la propriété</label>

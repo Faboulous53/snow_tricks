@@ -27,7 +27,8 @@ function getPropertyTypes() {
 function getProperty() {
 
     $db = connectDatabase();
-    $query = 'SELECT property.*,propertyType.name AS propertyName FROM property
+    $query = 'SELECT property.*,propertyType.name AS propertyName
+    FROM property
     INNER JOIN propertyType ON property.property_type_id = propertytype.id_property_type';
     $statement = $db->prepare($query);
     $statement->execute();
@@ -44,15 +45,37 @@ function getAgent() {
     return $statement->fetchAll();
 }
 
-function getNumberOfProperty() {
 
+function getNbrProperty($id): int {
     $db = connectDatabase();
-    $query = 'SELECT seller.*,COUNT (property.name) AS nombreProperty FROM seller, 
-    INNER JOIN property ON id_seller = property.seller_id 
-    WHERE seller.id = :id_seller';
-    //WHERE property.property_type_id = propertytype.id_property_type
-    //GROUP BY property_type_id';
+    $sqlQuery = 'SELECT COUNT(*) 
+    FROM property 
+    WHERE seller_id ='.$id;
+    $propertyStatement = $db->prepare($sqlQuery);
+    $propertyStatement->execute();
+    return $propertyStatement->fetchColumn();
+}
+
+function threeLastProperty() {
+    $db = connectDatabase();
+    $query = 'SELECT property.*,propertyType.name AS propertyName
+    FROM property
+    INNER JOIN propertyType ON property.property_type_id = propertytype.id_property_type
+    WHERE property.status <> \'Sold\'
+    ORDER BY create_time DESC
+    LIMIT 3';
     $statement = $db->prepare($query);
     $statement->execute();
     return $statement->fetchAll();
 }
+
+function getPropertiesWithSeller() {
+    $db = connectDatabase();
+    $query = 'SELECT *    FROM property,seller    WHERE seller_id = id_seller';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    return $statement->fetchAll();
+}
+
+$list = getPropertiesWithSeller();
+

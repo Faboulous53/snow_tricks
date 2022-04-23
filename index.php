@@ -12,7 +12,6 @@
 
 <?php include_once('./include/header.php') ?>
 
-
 <main>
 
     <section class="section-home">
@@ -37,10 +36,10 @@
                 <?php foreach (getPropertyTypes() as $propertyTypes) : ?>
                     <article class="card">
                         <div class="icon">
-                            <i class="<?= $propertyTypes['picto'] ?>"></i>
+                            <i class="<?= htmlentities($propertyTypes['picto']) ?>"></i>
                         </div>
-                        <h3><?= $propertyTypes['name'] ?></h3>
-                        <p> <?= $propertyTypes['value'] ?> Properties</p>
+                        <h3><?= htmlentities($propertyTypes['name']) ?></h3>
+                        <p> <?= htmlentities($propertyTypes['value']) ?> Properties</p>
                     </article>
                 <?php endforeach; ?>
             </div>
@@ -58,38 +57,40 @@
             </header>
 
             <div class="property-list">
-                <?php foreach (getProperty() as $propertys) : ?>
+                <?php foreach (threeLastProperty() as $propertys) : ?>
                     <article class="card">
                         <div class="card-img-container">
-                            <img src="<?= $propertys['image'] ?>" alt=<?= $propertys['name'] ?>>
+                            <img src="<?= htmlentities($propertys['image']) ?>" alt=<?= htmlentities($propertys['name']) ?>>
                         </div>
                         <div class="card-content">
                             <header class="card-content-header">
-                                <?php if ($propertys["status"] === "for Rent"): ?>
-                                    <div class='badge badge-warning'> <?= $propertys['status'] ?> </div>
+                                <?php if ($propertys["status"] === "for Rent") : ?>
+                                    <div class='badge badge-warning'> <?= htmlentities($propertys['status'])?> </div>
+                                <?php elseif ($propertys["status"] === "Rented") :?>
+                                    <div class='badge badge-warning'> <?= htmlentities($propertys['status'])?> </div>
                                 <?php else: ?>
-                                    <div class="badge badge-success"> <?= $propertys['status'] ?></div>
+                                    <div class="badge badge-success"> <?= htmlentities( $propertys['status'])?></div>
                                 <?php endif ?>
                                 <i class="fa fa-heart-o"></i>
                             </header>
-                            <h3><?= $propertys['name'] ?></h3>
+                            <h3><?= htmlentities($propertys['name']) ?></h3>
                             <p>
                                 <i class="fa fa-map-marker"></i>
-                                <?= $propertys['street'] ?>
+                                <?= htmlentities($propertys['street']) ?>
                             </p>
                             <p>
-                                <?= $propertys['state'] . " " . $propertys['country'] ?>
+                                <?= htmlentities($propertys['state']) . " " . htmlentities($propertys['country']) ?>
                             </p>
                         </div>
                         <footer class="card-footer">
                             <div>
                                 <div class="btn btn-primary">
-                                    <?= $propertys['price'] . " " . "€" ?>
+                                    <?= htmlentities($propertys['price']) . " " . "€" ?>
                                 </div>
                             </div>
 
                             <div>
-                                <?= $propertys['propertyName'] ?>
+                                <?= htmlentities($propertys['propertyName']) ?>
                             </div>
                         </footer>
                     </article>
@@ -180,22 +181,20 @@
                 <?php foreach (getAgent() as $agents) : ?>
                 <article class="card">
                     <div class="card-img-container">
-                        <div class="badge">
-                            <?php foreach (getNumberOfProperty() as $numbers) : ?>
-
-                            <?php endforeach; ?>
+                        <div class="badge badge-warning">
+                            <?php echo "Bien(s) disponible(s): ". htmlentities(getNbrProperty($agents['id_seller'])) ?>
                         </div>
                         <div class="agent-img">
                                 <span>
                                     <img class="check" src="./images/verified.svg" alt="">
                                 </span>
-                            <img class="agent-photo" src="<?= $agents['profile_picture']; ?>" alt="portrait-agent-2">
+                            <img class="agent-photo" src="<?= htmlentities($agents['profile_picture']); ?>" alt="portrait-agent-2">
                         </div>
                         <div class="agent-localisation">
-                            <i class="fa fa-map-marker"></i> <?= $agents['location']; ?>
+                            <i class="fa fa-map-marker"></i> <?= htmlentities($agents['location']); ?>
                         </div>
                         <div class="agent-name">
-                            <h3><?= $agents['first_name'] . " " . $agents['last_name']; ?></h3>
+                            <h3><?= htmlentities($agents['first_name']) . " " . htmlentities($agents['last_name']); ?></h3>
                         </div>
                         <div class="agent-contact">
                             <ul>
@@ -223,13 +222,12 @@
                         </div>
                         <footer class="card-footer">
                             <div class="btn btn-primary">
-                                <i class="fa fa-envelope-o"></i>
-                                Message
+                                <p><?= htmlentities($agents['email']); ?></p>
                             </div>
-                            <a href="#">
                                 <div class="btn btn-secondary">
-                                    <i class="fa fa-phone"></i>
-                            </a>
+                                    <p><?= htmlentities($agents['phone']); ?></p>
+
+
                     </div>
                     </footer>
             </div>

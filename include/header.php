@@ -21,24 +21,15 @@
                             </a>
                             <ul>
                                 <li>
-                                    <a href="#">Maisons</a>
+                                    <a href="form.php">Formulaire</a>
                                 </li>
                                 <li>
-                                    <a href="#">Appartements</a>
+                                    <a href="listProperty.php">Liste des propriétés</a>
                                 </li>
-                                <li>
-                                    <a href="#">Villa</a>
-                                </li>
+
                             </ul>
                         </li>
-                        <li class="sub-menu">
-                            <a href="contact.php">
-                                Formulaire
-                            </a>
-                            <ul>
-                                <a href="form.php">Création bien</a>
-                            </ul>
-                        </li>
+
                         <li>
                             <a href="contact.php">
                                 Nous Contacter
