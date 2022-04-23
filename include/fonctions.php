@@ -67,6 +67,7 @@ function threeLastProperty() {
     $statement = $db->prepare($query);
     $statement->execute();
     return $statement->fetchAll();
+    $lastProperty = threeLastProperty();
 }
 
 function getPropertiesWithSeller() {
@@ -77,5 +78,11 @@ function getPropertiesWithSeller() {
     return $statement->fetchAll();
 }
 
-$list = getPropertiesWithSeller();
+//function classAvaible(){
+//    if($idProperties['status'] === 'for Rent' && $idProperties['status'] === 'for Sale'){
+//        echo "table-success";
+//    }else{
+//        echo "table-danger";
+//    }
+//}
 

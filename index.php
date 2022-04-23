@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>RentUp - Home</title>
 </head>
 
@@ -64,9 +65,9 @@
                         </div>
                         <div class="card-content">
                             <header class="card-content-header">
-                                <?php if ($propertys["status"] === "for Rent") : ?>
+                                <?php if ($propertys["status"] === "déjà vendu") : ?>
                                     <div class='badge badge-warning'> <?= htmlentities($propertys['status'])?> </div>
-                                <?php elseif ($propertys["status"] === "Rented") :?>
+                                <?php elseif ($propertys["status"] === "déjà loué") :?>
                                     <div class='badge badge-warning'> <?= htmlentities($propertys['status'])?> </div>
                                 <?php else: ?>
                                     <div class="badge badge-success"> <?= htmlentities( $propertys['status'])?></div>

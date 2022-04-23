@@ -26,22 +26,31 @@
         <tr>
             <th scope="col">Nom de la propriété</th>
             <th scope="col">Adresse</th>
-            <th scope="col">prix</th>
+            <th scope="col">Prix</th>
             <th scope="col">Status</th>
-            <th scope="col">Date de parution</th>
+            <th scope="col">Date / heure de parution</th>
             <th scope="col">Vendeur</th>
         </tr>
         </thead>
         <tbody>
         <?php foreach (getPropertiesWithSeller() as $idProperties) :; ?>
+        <?php if ($idProperties['status'] === 'A louer' || $idProperties['status'] === 'A vendre'): ?>
         <tr>
-
-            <th scope="row"><?= $idProperties['name']; ?></th>
-            <td><?= $idProperties['street']." ". $idProperties['city']." ".$idProperties['postal_code']." ".$idProperties['country']?></td>
-            <td><?= $idProperties['price']; ?></td>
-            <td><?= $idProperties['status']; ?></td>
-            <td><?= $idProperties['create_time']; ?></td>
-            <td><?= $idProperties['first_name']." ".$idProperties['last_name']; ?></td>
+            <th scope="row" class="table-success"><?= $idProperties['name']; ?></th>
+            <td class="table-success"><?= $idProperties['street']." ". $idProperties['city']." ".$idProperties['postal_code']." ".$idProperties['country']?></td>
+            <td class="table-success"><?= $idProperties['price']; ?></td>
+            <td class="table-success"><?= $idProperties['status']; ?></td>
+            <td class="table-success"><?= $idProperties['create_time']; ?></td>
+            <td class="table-success"><?= $idProperties['first_name']." ".$idProperties['last_name']; ?></td>
+            <?php else :?>
+        <tr>
+            <th scope="row" class="table-danger"><?= $idProperties['name']; ?></th>
+            <td class="table-danger"><?= $idProperties['street']." ". $idProperties['city']." ".$idProperties['postal_code']." ".$idProperties['country']?></td>
+            <td class="table-danger"><?= $idProperties['price']; ?></td>
+            <td class="table-danger"><?= $idProperties['status']; ?></td>
+            <td class="table-danger"><?= $idProperties['create_time']; ?></td>
+            <td class="table-danger"><?= $idProperties['first_name']." ".$idProperties['last_name']; ?></td>
+            <?php endif; ?>
             <?php endforeach; ?>
         </tr>
 
@@ -51,6 +60,8 @@
 
     </tbody>
     </table>
+    <br/><br/>
+
 
 
 </div>
