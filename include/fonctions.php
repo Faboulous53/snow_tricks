@@ -14,8 +14,8 @@ function connectDatabase()
 }
 
 
-
-function getPropertyTypes() {
+function getPropertyTypes()
+{
 
     $db = connectDatabase();
     $query = 'SELECT * FROM propertyType';
@@ -24,7 +24,8 @@ function getPropertyTypes() {
     return $statement->fetchAll();
 }
 
-function getProperty() {
+function getProperty()
+{
 
     $db = connectDatabase();
     $query = 'SELECT property.*,propertyType.name AS propertyName
@@ -36,7 +37,8 @@ function getProperty() {
 }
 
 
-function getAgent() {
+function getAgent()
+{
 
     $db = connectDatabase();
     $query = 'SELECT * FROM seller';
@@ -46,17 +48,19 @@ function getAgent() {
 }
 
 
-function getNbrProperty($id): int {
+function getNbrProperty($id): int
+{
     $db = connectDatabase();
     $sqlQuery = 'SELECT COUNT(*) 
     FROM property 
-    WHERE seller_id ='.$id;
+    WHERE seller_id =' . $id;
     $propertyStatement = $db->prepare($sqlQuery);
     $propertyStatement->execute();
     return $propertyStatement->fetchColumn();
 }
 
-function threeLastProperty() {
+function threeLastProperty()
+{
     $db = connectDatabase();
     $query = 'SELECT property.*,propertyType.name AS propertyName
     FROM property
@@ -70,13 +74,63 @@ function threeLastProperty() {
     $lastProperty = threeLastProperty();
 }
 
-function getPropertiesWithSeller() {
+function getPropertiesWithSeller()
+{
     $db = connectDatabase();
     $query = 'SELECT *    FROM property,seller    WHERE seller_id = id_seller';
     $statement = $db->prepare($query);
     $statement->execute();
     return $statement->fetchAll();
 }
+
+function createProperty($name, $street, $city, $postalCode, $state, $country, $propertyTypeId, $status, $price, $sellerId, $image)
+{
+    $db = connectDatabase();
+    $sqlQuery = "INSERT INTO property (name, street, city, postal_code, state, country, price, status, property_type_id, seller_id, image) 
+    VALUES (:name,:street ,:city,:postal_code,:state ,:country ,:price,:status,:property_type_id,:seller_id,:image) ";
+    $propertyStatement = $db->prepare($sqlQuery);
+
+    return $propertyStatement->execute([
+        'name' => $name,
+        'street' => $street,
+        'city' => $city,
+        'postal_code' => $postalCode,
+        'state' => $state,
+        'country' => $country,
+        'price' => $price,
+        'status' => $status,
+        'property_type_id' => $propertyTypeId,
+        'seller_id' => $sellerId,
+        'image' => $image
+
+    ]);
+}
+
+function convertImage()
+{
+    if ($_FILES['image']['error'] == 0) {
+        if ($_FILES['image']['size'] <= 1000000) {
+            // Testons si l'extension est autorisée
+            $fileInfo = pathinfo($_FILES['image']['name']);
+            $extension = $fileInfo['extension'];
+            $mimetype = mime_content_type($_FILES['image']['tmp_name']);
+            $allowedExtensions = ['jpg', 'jpeg', 'gif', 'png'];
+            if (in_array($extension, $allowedExtensions) && in_array($mimetype, array('image/jpeg', 'image/gif', 'image/png'))) {
+                // On peut valider le fichier et le stocker définitivement
+                $filePath = 'images/' . basename($_FILES['image']['name']);
+                move_uploaded_file($_FILES['image']['tmp_name'], $filePath);
+
+            } else {
+                echo '<div class="alert alert-danger" role="alert">Le fichier doit être une image</div>';
+            }
+        } else {
+            echo '<div class="alert alert-danger" role="alert">L\'image ne doit pas dépasser 1mo</div>';
+        }
+    } else {
+        echo '<div class="alert alert-danger" role="alert">Une erreur est survenue lors de l\'import de l\'image</div>';
+    }
+}
+
 
 //function classAvaible(){
 //    if($idProperties['status'] === 'for Rent' && $idProperties['status'] === 'for Sale'){

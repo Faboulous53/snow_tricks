@@ -21,7 +21,7 @@
                             </a>
                             <ul>
                                 <li>
-                                    <a href="form.php">Formulaire</a>
+                                    <a href="createProperty.php">Formulaire</a>
                                 </li>
                                 <li>
                                     <a href="listProperty.php">Liste des propriétés</a>
