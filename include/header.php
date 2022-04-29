@@ -21,12 +21,11 @@
                             </a>
                             <ul>
                                 <li>
-                                    <a href="createProperty.php">Formulaire</a>
-                                </li>
-                                <li>
                                     <a href="listProperty.php">Liste des propriétés</a>
                                 </li>
-
+                                <li>
+                                    <a href="createProperty.php">Formulaire de création de propriété</a>
+                                </li>
                             </ul>
                         </li>
 

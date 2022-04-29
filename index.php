@@ -61,7 +61,7 @@
                 <?php foreach (threeLastProperty() as $propertys) : ?>
                     <article class="card">
                         <div class="card-img-container">
-                            <img src="<?= htmlentities($propertys['image']) ?>" alt=<?= htmlentities($propertys['name']) ?>>
+                            <img src="images/<?= htmlentities($propertys['image']) ?>" alt=<?= htmlentities($propertys['name']) ?>>
                         </div>
                         <div class="card-content">
                             <header class="card-content-header">

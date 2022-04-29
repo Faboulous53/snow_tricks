@@ -4,7 +4,7 @@
 
 if(!empty($_POST)){
     if(
-        isset($_POST["name"], $_POST["street"], $_POST["city"], $_POST["postal_code"], $_POST["state"], $_POST["country"], $_POST["propertyTypeId"], $_POST["status"], $_POST["price"],$_POST["sellerId"])
+        isset($_POST["name"], $_POST["street"], $_POST["city"], $_POST["postal_code"], $_POST["state"], $_POST["country"], $_POST["propertyTypeId"], $_POST["status"], $_POST["price"],$_POST["sellerId"],$_FILES["image"]['name'])
         && !empty($_POST["name"])
         && !empty($_POST["street"])
         && !empty($_POST["city"])
@@ -15,7 +15,7 @@ if(!empty($_POST)){
         && !empty($_POST["status"])
         && !empty($_POST["price"])
         && !empty($_POST["sellerId"])
-        && !empty($_FILES["image"])
+        && !empty($_FILES["image"]['name'])
 
     ) {
         // formulaire complet
@@ -33,8 +33,7 @@ if(!empty($_POST)){
         $status = htmlentities($_POST["status"]);
         $price = htmlentities($_POST["price"]);
         $sellerId = htmlentities($_POST["sellerId"]);
-        $image = "./images/".htmlentities($_FILES['image']['name']);
-
+        $image = htmlentities($_FILES['image']['name']);
 
         createProperty($name, $street, $city, $postalCode, $state, $country, $propertyTypeId, $status, $price, $sellerId, $image);
 
@@ -55,7 +54,7 @@ if(!empty($_POST)){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Création propriété</title>
 </head>
 <body>
 <br/><br/><br/><br/><br/><br/><br/>
@@ -65,7 +64,7 @@ if(!empty($_POST)){
 
 <div class="container">
     <div style="flex-direction: column">
-        <h1>Formulaire de création de bien</h1>
+        <h1>Formulaire de création de bien:</h1>
         <form action="createProperty.php" method="POST" class="needs-validation text-" enctype="multipart/form-data">
             <div class="form-row" class="position-relative">
                 <div class="col-md-4 mb-3 ">
@@ -111,7 +110,7 @@ if(!empty($_POST)){
                     <div class="invalid-feedback">Valeur incorrecte</div>
                 </div>
                 <div class="col-md-3 mb-3">
-                    <label for="status">Type de propriété</label>
+                    <label for="property">Type de propriété</label>
                     <select class="form-select" aria-label="Default select example" name="propertyTypeId" required>
                         <option selected>Veuillez sélectionner</option>
                         <?php foreach (getPropertyTypes() as $propertyTypes) : ?>
@@ -124,7 +123,7 @@ if(!empty($_POST)){
                     <select class="form-select" aria-label="Default select example" name="status" required>
                         <option selected>Veuillez sélectionner</option>
                         <option value="A louer">A louer</option>
-                        <option value="A Vendre">A vendre</option>
+                        <option value="A vendre">A vendre</option>
                     </select>
                 </div>
                 <div class="col-md-3 mb-3">
@@ -135,7 +134,7 @@ if(!empty($_POST)){
                     <div class="invalid-feedback">Valeur incorrecte</div>
                 </div>
                 <div class="col-md-3 mb-3">
-                    <label for="status">Selection du vendeur</label>
+                    <label for="seller">Selection du vendeur</label>
                     <select class="form-select" aria-label="Default select example" name="sellerId" required>
                         <option selected>Veuillez sélectionner</option>
                         <?php foreach (getAgent() as $agents) : ?>
