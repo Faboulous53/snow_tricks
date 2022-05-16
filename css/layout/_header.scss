@@ -5,12 +5,18 @@
     position: fixed;
     width: 100%;
     padding: 1rem 0;
-    z-index: 1;
     background-color: white;
-    box-shadow: 0 5px 30px rgba(0, 22, 84, 0.1);
+    background: rgba(0, 0, 0, 0.1);
+
+
+
+
 
     .logo {
-        max-width: 200px;
+        max-width: 150px;
+        position: relative;
+        z-index: 10;
+
     }
 
     ul {

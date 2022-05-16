@@ -3,16 +3,18 @@
 .section {
     padding: 2rem 0;
 
+
     &.section-bg-grey {
-        background-color: lightgrey;
+        background-color: white;
     }
 
     &.section-bg-green {
-        background-color: variables.$color-primary;
+        background-color:white;
     }
 
     &.section-bg-dark-grey {
-        background-color: #1d2636;
+        background-color: white;
+
     }
     
     .section-header {

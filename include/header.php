@@ -12,12 +12,12 @@
                     <ul>
                         <li>
                             <a href="index.php">
-                                Accueil
+                                Annuaire des figures
                             </a>
                         </li>
                         <li class="sub-menu">
                             <a href="properties.html">
-                                Nos Propriétés
+                                Gestion des tricks
                             </a>
                             <ul>
                                 <li>
@@ -28,24 +28,12 @@
                                 </li>
                             </ul>
                         </li>
-
-                        <li>
-                            <a href="contact.php">
-                                Nous Contacter
-                            </a>
-                        </li>
                     </ul>
                 </nav>
                 <nav class="user-navigation">
                     <ul>
-                        <li class="number btn btn-primary">
-                            2
-                        </li>
                         <li>
-                            My list
-                        </li>
-                        <li>
-                            <a href="login.html" class="btn btn-primary">
+                            <a href="login.html" class="btn btn-secondary">
                                 <i class="fa fa-sign-in" aria-hidden="true"></i>
                                 Se connecter
                             </a>

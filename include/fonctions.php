@@ -132,7 +132,7 @@ function convertImage()
 }
 
 function modificationProperty($name, $street, $city, $postalCode, $state, $country, $propertyTypeId, $status, $price, $sellerId, $image, $id_property)
-{ var_dump();
+{
     $db = connectDatabase();
     $sqlQuery = "UPDATE property
     SET name = :name,
@@ -147,7 +147,6 @@ function modificationProperty($name, $street, $city, $postalCode, $state, $count
         property_type_id = :property_type_id,
         seller_id = :seller_id
         WHERE id_property = :id_property; ";
-
     $modificationProperty = $db->prepare($sqlQuery);
     return $modificationProperty->execute([
         'name' => $name,
