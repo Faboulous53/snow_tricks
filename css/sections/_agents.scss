@@ -1,15 +1,15 @@
 @use '../abstracts/mixins';
 @use '../abstracts/variables';
 
-.badge {
-    background-color: #ff6922;
-    color: white;
-    width: 80px;
-    border-radius: 20px;
-    padding: 10px;
-    margin: 10px;
-    justify-content: start;
-}
+//.badge {
+//    background-color: #ff6922;
+//    color: white;
+//    width: 80px;
+//    border-radius: 20px;
+//    padding: 10px;
+//    margin: 10px;
+//    justify-content: start;
+//}
 
 .agents-list {
     display: grid;

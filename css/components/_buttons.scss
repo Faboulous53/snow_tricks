@@ -32,11 +32,11 @@
     }
 
     &.btn-quaternary {
-        border-color: variables.$color-quaternary;
-        background-color: variables.$color-quaternary;
+        border-color: gray;
+        background-color: gray;
 
         &:hover {
-            color: variables.$color-quaternary;
+            color: gray;
         }
     }
 

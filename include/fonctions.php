@@ -3,7 +3,7 @@
 function connectDatabase()
 {
     try {
-        $db = new PDO('mysql:host=localhost;dbname=rentup;charset=utf8', 'root', 'Not24get');
+        $db = new PDO('mysql:host=localhost;dbname=snow_tricks;charset=utf8', 'root', 'Not24get');
         return $db;
 
     } catch (Exception $e) {

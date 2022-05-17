@@ -6,11 +6,11 @@
 @import './components/badges';
 @import './components/cards';
 @import './layout/containers';
-@import './layout/sections';
 @import './layout/header';
-@import './layout/pre-footer';
 @import './layout/footer';
-
+@import './layout/pre-footer';
+@import './layout/sections';
+@import "sections/inscription";
 @import './sections/home';
 @import './sections/property-type-list';
 @import './sections/property-list';

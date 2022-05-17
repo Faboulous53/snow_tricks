@@ -21,12 +21,17 @@
                             </a>
                             <ul>
                                 <li>
-                                    <a href="listProperty.php">Liste des propriétés</a>
+                                    <a href="listProperty.php">Ajouter un tricks</a>
                                 </li>
                                 <li>
-                                    <a href="createProperty.php">Formulaire de création de propriété</a>
+                                    <a href="createProperty.php">Modifier un tricks</a>
                                 </li>
                             </ul>
+                        </li>
+                        <li>
+                            <a href="inscription.php">
+                                Inscription
+                            </a>
                         </li>
                     </ul>
                 </nav>
