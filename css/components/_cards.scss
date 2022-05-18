@@ -5,23 +5,24 @@
     flex-direction: column;
     align-items: center;
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 42px 0 rgb(32 32 32 / 15%);
-    overflow: hidden;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    color: white;
+
 
     .card-img-container {
         position: relative;
 
         img {
             width: 100%;
-            height: 300px;
+            height: 200px;
             object-fit: cover;
         }
     }
 
     .card-content {
         width: 100%;
-        padding: 0.5rem 1rem;
+        padding: 1rem 1rem;
         box-sizing: border-box;
 
         .card-content-header {
@@ -35,9 +36,8 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        padding: 0.5rem 1rem;
         box-sizing: border-box;
-        border-top: 1px solid #ccc;
+        border-top: 3px solid #ccc;
     }
 }
 

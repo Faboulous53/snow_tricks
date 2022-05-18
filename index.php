@@ -4,29 +4,24 @@
 <html lang="fr-FR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>RentUp - Home</title>
+    <?php include_once('./include/head.php') ?>
+    <title>Accueil Snow Tricks</title>
 </head>
-
 <?php include_once('./include/header.php') ?>
+<body>
+
+<section class="section-title">
+    <div class="container principal-title">
+        <h1>Tricks en ligne!!</h1>
+    </div>
+</section>
 
 
-    <section class="section-home">
-        <div class="container section-home-content">
-            <h1>En cours de construction</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis porro doloremque consequuntur,
-                error incidunt, sed natus qui temporibus eius alias nemo beatae explicabo sint ratione consequatur.
-                Deleniti minus vero quas.</p>
-        </div>
-    </section>
-
-
-<?php include_once('./include/footer.php') ?>
-
-
+<article class="card">
+    <div class="card-img-container">
+        <?php include_once('./include/index_tricks.php') ?>
+    </div>
+    <?php include_once('./include/footer.php') ?>
 </body>
-
+<script src="dist/app.js"></script>
 </html>

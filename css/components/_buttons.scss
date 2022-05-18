@@ -1,80 +1,80 @@
 @use '../abstracts/variables';
-
-.btn {
-    display: inline-block;
-    margin: 0 5px;
-    padding: 10px;
-    border-radius: 4px;
-    border-width: 2px;
-    border-style: solid;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
-    color: white;
-    transition: 0.5s;
-
-    &.btn-primary {
-        border-color: variables.$color-primary;
-        background-color: variables.$color-primary;
-
-        &:hover {
-            color: variables.$color-primary;
-        }
-    }
-
-    &.btn-secondary {
-        border-color: variables.$color-secondary;
-        background-color: variables.$color-secondary;
-
-        &:hover {
-            color: variables.$color-secondary;
-        }
-    }
-
-    &.btn-quaternary {
-        border-color: gray;
-        background-color: gray;
-
-        &:hover {
-            color: gray;
-        }
-    }
-
-    &.back-to-top {
-        border-color: rgb(51, 60, 86);
-        background-color: rgb(51, 60, 86);
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        margin-bottom: 0.5rem;
-
-        &.back-to-top > i {
-        color: white;
-        }           
-        
-        &:hover {
-            border-color: white;    
-                
-            i {
-                color: rgb(51, 60, 86);
-            }
-        }    
-    }
-            
-    &.btn-pre-footer  {
-        padding: 1.2rem 2.5rem;
-        background-color: white;
-        border-radius: 50px;
-        border: 2px solid transparent;
-        box-shadow: 0px 0px 0px 5px rgb(255 255 255 / 20%);
-        
-        a {
-            color: #51535c;
-            text-decoration: none;
-        }
-    }
-
-    &:hover {
-        background-color: white;
-    }
+//
+.btn1 {
+    //    display: inline-block;
+       margin: 0 5px;
+       padding: 10px;
+       border-radius: 8px;
+       border-width: 2px;
+    //    border-style: solid;
+    //    text-decoration: none;
+    //    font-weight: bold;
+    //    font-size: 1rem;
+    //    color: white;
+    //    transition: 0.5s;
 }
+//    &.btn-primary {
+//        border-color: variables.$color-primary;
+//        background-color: variables.$color-primary;
+//
+//        &:hover {
+//            color: variables.$color-primary;
+//        }
+//    }
+//
+//    &.btn-secondary {
+//        border-color: variables.$color-secondary;
+//        background-color: variables.$color-secondary;
+//
+//        &:hover {
+//            color: variables.$color-secondary;
+//        }
+//    }
+//
+//    &.btn-quaternary {
+//        border-color: gray;
+//        background-color: gray;
+//
+//        &:hover {
+//            color: gray;
+//        }
+//    }
+//
+//    &.back-to-top {
+//        border-color: rgb(51, 60, 86);
+//        background-color: rgb(51, 60, 86);
+//        position: fixed;
+//        right: 0;
+//        bottom: 0;
+//        margin-bottom: 0.5rem;
+//
+//        &.back-to-top > i {
+//        color: white;
+//        }
+//
+//        &:hover {
+//            border-color: white;
+//
+//            i {
+//                color: rgb(51, 60, 86);
+//            }
+//        }
+//    }
+//
+//    &.btn-pre-footer  {
+//        padding: 1.2rem 2.5rem;
+//        background-color: white;
+//        border-radius: 50px;
+//        border: 2px solid transparent;
+//        box-shadow: 0px 0px 0px 5px rgb(255 255 255 / 20%);
+//
+//        a {
+//            color: #51535c;
+//            text-decoration: none;
+//        }
+//    }
+//
+//    &:hover {
+//        background-color: white;
+//    }
+//}

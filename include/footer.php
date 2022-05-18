@@ -1,5 +1,5 @@
 <footer id="main-footer" class="section section-bg-dark-grey">
-    <div class="container">
+
         <div class="container-footer">
             <section class="container-footer-left">
                 <a href="index.html">
@@ -88,7 +88,7 @@
                 </div>
             </section>
         </div>
-    </div>
+
 </footer>
 
 

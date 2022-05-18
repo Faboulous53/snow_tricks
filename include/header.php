@@ -4,8 +4,8 @@
 <header id="main-header">
     <div class="container">
         <div class="container-header">
-            <a href="index.html">
-                <img src="images/logo.png" alt="RentUp" class="logo">
+            <a href="index.php">
+                <img src="images/logo.png" alt="Snowtricks" class="logo">
             </a>
             <div class="container-header-right">
                 <nav class="main-navigation">
@@ -38,9 +38,8 @@
                 <nav class="user-navigation">
                     <ul>
                         <li>
-                            <a href="login.html" class="btn btn-secondary">
-                                <i class="fa fa-sign-in" aria-hidden="true"></i>
-                                Se connecter
+                            <a href="connexion.php" class="btn btn-primary">
+                                Se Connecter
                             </a>
                         </li>
                     </ul>

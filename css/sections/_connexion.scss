@@ -1,7 +1,7 @@
-.content-inscription {
-  margin: 200px auto;
+.content-connexion {
+  margin: 100px auto;
   width: 600px;
-  height: 600px;
+  height: 400px;
   z-index: 10;
   background-color: white;
   background: rgba(0, 0, 0, 0.5);
@@ -9,15 +9,10 @@
   display: flex;
   color: white;
   font-weight: bold;
-
-}
-
-.content-inscription {
   flex-direction: column;
   align-items: center;
-
-  h1 {
-
-    }
 }
 
+.img-connexion {
+
+}

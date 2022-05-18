@@ -4,15 +4,20 @@
     width: 1200px;
     margin: 0 auto;
 
+
     .container-header {
         display: flex;
         align-items: center;
     }
 }
+.head {
+    text-align: center;
+}
 
 .containerForm {
     display: inline;
     justify-content: flex-start;
+
 }
 
 @include mixins.desktop-large {

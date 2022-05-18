@@ -1,80 +1,68 @@
 <?php include_once('./include/fonctions.php') ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <?php include_once('./include/head.php') ?>
+
+    <title>Inscription</title>
 </head>
-<?php include_once('./include/header.php') ?>
 <body>
-<div class="section-home ">
-    <div class="content-inscription container-fluid">
-        <div class="structure ">
-            <h1>S'inscrire sur le site</h1>
+<?php include_once('./include/header.php') ?>
+<div class="container container-inscription">
+    <h1>S'inscrire sur le site</h1>
+    <form action="submit-inscription.php" style="text-align: center" method="POST"
+          enctype="multipart/form-data">
+        <div class="mb-3">
+            <label class="form-label" for="last_name">Nom</label>
+            <input class="form-control" type="text" id="last_name" name="last_name"
+                   placeholder="Insérez votre nom" required>
         </div>
-
-            <form action="createProperty.php" style="text-align: center " method="POST" enctype="multipart/form-data">
-
-                <div class="mb-3 col-md-4 mb-3">
-                    <label for="last_name">Nom</label>
-                    <br>
-                    <input type="text" class="" id="name" name="name" placeholder="Insérez votre nom" required>
-                </div>
+        <br>
+        <div class="mb-3">
+            <label class="form-label" for="first_name">Prénom</label>
+            <input class="form-control" type="text" class="form-control" id="first_name" name="first_name"
+                   placeholder="Insérez votre prénom" required>
+        </div>
+        <br>
+        <div class="mb-3">
+            <label class="form-label" for="username">Pseudo</label>
+            <input class="form-control" id="username" name="username" placeholder="Insérez votre pseudo"
+                   required>
+        </div>
+        <br>
+        <div class="mb-3>
+            <div class="col-md-9 mb-lg-4">
+                <label for="">Adresse mail</label>
                 <br>
-                <div class="col-md-4 mb-3">
-                    <label for="first_name">Prénom</label>
-                    <br>
-                    <input type="text" class="form-control" id="street" name="street" placeholder="Insérez votre prénom" required>
-                </div>
-                <br>
-                <div class="col-md-4 mb-3">
-                    <label for="pseudo">Pseudo</label>
-                    <br>
-                    <input type="text" class="form-control" id="city" name="city" placeholder="Insérez votre pseudo" required>
-                </div>
-                <br>
-                <div class="col-md-2 mb-lg-4">
-                    <div class="col-md-9 mb-lg-4">
-                        <label for="">Adresse mail</label>
-                        <br>
-                        <input type="text" class="form-control" id="postal_code" name="postal_code"
-                               placeholder="Insérez votre mail" required>
-                    </div>
-                </div>
-                <br>
-                <div class="col-md-3 mb-3">
-                    <label for="state">Mot de passe</label>
-                    <br>
-                    <input type="password" class="form-control" id="state" name="state"
-                           placeholder="Choisissez un mot de passe" required>
-                </div>
-                <br>
-                <div class="col-md-3 mb-3">
-                    <label for="state">Confirmation Mot de passe</label>
-                    <br>
-                    <input type="password" class="form-control" id="state" name="state"
-                           placeholder="Confirmez votre mot de passe" required>
-                </div>
-                <br>
-                <div class="mb-3">
-                    <label for="formFile" class="form-label">Veuillez insérer une photo d'utilisateur</utilisa></label>
-                    <br>
-                    <input class="form-control" type="file" id="image" name="image">
-                    <br><br>
-                    <button class="btn btn-secondary" type="submit">Envoyer</button>
-
-                </div>
-
-            </form>
-    </div>
-
-
+                <input type="email" class="form-control" id="email" name="mail"
+                       placeholder="Insérez votre mail" required>
+            </div>
+        </div>
+        <br>
+        <div class="mb-3">
+            <label for="password">Mot de passe</label>
+            <br>
+            <input type="password" class="form-control" id="password" name="password"
+                   placeholder="Choisissez un mot de passe" required>
+        </div>
+        <br>
+        <div class="mb-3">
+            <label for="confirm-password">Confirmation Mot de passe</label>
+            <br>
+            <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
+        </div>
+        <br>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Veuillez insérer une photo d'utilisateur</utilisa></label>
+            <br>
+            <input class="form-control" type="file" id="picture" name="picture">
+            <br><br>
+            <button class="btn1 btn-primary" type="submit">Envoyer</button>
+        </div>
+        <a href="connexion.php"> se connecter</a>
+    </form>
 </div>
-
-
-<?php include_once('./include/footer.php') ?>
 </body>
 </html>
 
