@@ -68,11 +68,37 @@ function createUser($lastName, $firstName, $userName, $mail, $password, $picture
 function findUser($mail)
 {
     $db = connectDatabase();
-    $sqlQuery = "SELECT mail, password FROM users WHERE mail = :mail LIMIT 1";
+    $sqlQuery = "SELECT * FROM users WHERE mail = :mail LIMIT 1";
     $connexionStatement = $db->prepare($sqlQuery);
     $connexionStatement->execute(['mail' => $mail]);
     return $connexionStatement->fetch();
 }
+
+function logout()
+{
+    session_destroy();
+    setcookie('loggedUser');
+}
+
+/**
+ * Vérifie si l'utilisateur est connecté
+ *
+ * @return bool
+ */
+function isLogged(): bool
+{
+    if(isset($_SESSION['user'])) {
+        return true;
+    }
+
+    return false;
+}
+
+
+
+
+
+
 
 
 

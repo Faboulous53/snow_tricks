@@ -13,17 +13,35 @@ if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
     && !empty($_POST["password"])) {
     $mail = htmlentities($_POST["mail"]);
     if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-        die("Ce n'est pas un email");
+        die("<div class='container container-inscription'>
+            <div class='mb-3'>
+                <div class='section-home-content-inscription' style='text-align: center'>
+                    <h2>Ce n'est pas un email</h2>
+                    <a href='connexion.php'>
+                    <button type='button' class='btn btn-primary'>Rééssayer</button>
+                    </a>
+                </div>
+             </div>
+        </div>");
     }
     if (!$mail) {
-        die("l'utilisateur et/ ou mot de passe incorrect");
+        die("<div class='container container-inscription'>
+            <div class='mb-3'>
+                <div class='section-home-content-inscription' style='text-align: center'>
+                    <h2>Utilisateur ou mot de passe incorrect</h2>
+                    <a href='connexion.php'>
+                    <button type='button' class='btn btn-primary'>Rééssayer</button>
+                    </a>
+                </div>
+             </div>
+        </div>");
     }
     $user = findUser($mail);
     if (!$user) {
         die("<div class='container container-inscription'>
             <div class='mb-3'>
                 <div class='section-home-content-inscription' style='text-align: center'>
-                    <h2>l'adresse mail est incorrect</h2>
+                    <h2>l'adresse mail ou le mot de passe sont incorrects</h2>
                     <a href='connexion.php'>
                     <button type='button' class='btn btn-primary'>Rééssayer</button>
                     </a>
@@ -46,9 +64,7 @@ if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
                 </div>
              </div>
         </div>");
-    }
-
-        die(" <div class='container container-inscription'>
+    } echo (" <div class='container container-inscription'>
             <div class='mb-3'>
                 <div class='section-home-content-inscription' style='text-align: center'>
                     <h2>Vous êtes connecté</h2>
@@ -57,9 +73,20 @@ if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
                     </a>
                 </div>
              </div>
-        </div> ");
-
+        </div>").
+    session_start();
+    $_SESSION["user"] = [
+        "id" => $user["id"],
+        "pseudo" => $user["username"],
+        "last_name" => $user["last_name"],
+        "first_name" => $user["first_name"],
+        "mail" => $user["mail"]
+    ];
+    header("location:index.php");
 }
+
+
+
 ?>
 
 
