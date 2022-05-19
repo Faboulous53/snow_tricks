@@ -10,12 +10,12 @@
 <body>
 <?php include_once('./include/header.php') ?>
 <div class="container container-inscription">
-    <h1>S'inscrire sur le site</h1>
+    <h1 style="text-align: center">S'inscrire sur le site</h1>
     <form action="submit-inscription.php" style="text-align: center" method="POST"
           enctype="multipart/form-data">
         <div class="mb-3">
             <label class="form-label" for="last_name">Nom</label>
-            <input class="form-control" type="text" id="last_name" name="last_name"
+            <input class="form-control c" type="text" id="last_name" name="last_name"
                    placeholder="Insérez votre nom" required>
         </div>
         <br>
@@ -27,40 +27,29 @@
         <br>
         <div class="mb-3">
             <label class="form-label" for="username">Pseudo</label>
-            <input class="form-control" id="username" name="username" placeholder="Insérez votre pseudo"
-                   required>
+            <input class="form-control" id="username" name="username" placeholder="Insérez votre pseudo" required>
         </div>
-        <br>
-        <div class="mb-3>
-            <div class="col-md-9 mb-lg-4">
-                <label for="">Adresse mail</label>
-                <br>
-                <input type="email" class="form-control" id="email" name="mail"
-                       placeholder="Insérez votre mail" required>
-            </div>
-        </div>
-        <br>
         <div class="mb-3">
-            <label for="password">Mot de passe</label>
-            <br>
+            <label class="form-label" for="">Adresse mail</label>
+            <input type="email" class="form-control" id="email" name="mail"
+                   placeholder="Insérez votre mail" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="password">Mot de passe</label>
             <input type="password" class="form-control" id="password" name="password"
                    placeholder="Choisissez un mot de passe" required>
         </div>
-        <br>
         <div class="mb-3">
-            <label for="confirm-password">Confirmation Mot de passe</label>
-            <br>
-            <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
+            <label class="form-label" for="confirm-password">Confirmation Mot de passe</label>
+            <input type="password" class="form-control" id="confirm-password" name="confirm-password"
+                   placeholder="Confirmez un mot de passe" required>
         </div>
-        <br>
         <div class="mb-3">
-            <label for="formFile" class="form-label">Veuillez insérer une photo d'utilisateur</utilisa></label>
-            <br>
-            <input class="form-control" type="file" id="picture" name="picture">
-            <br><br>
-            <button class="btn1 btn-primary" type="submit">Envoyer</button>
+            <label class="form-label" for="formFile" class="form-label">Veuillez insérer une photo
+                d'utilisateur</label><input class="form-control" type="file" id="picture" name="picture">
         </div>
-        <a href="connexion.php"> se connecter</a>
+        <button class="btn1 btn-primary" type="submit">Envoyer</button><br>
+        <a href="connexion.php">se connecter</a>
     </form>
 </div>
 </body>

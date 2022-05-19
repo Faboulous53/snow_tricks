@@ -34,7 +34,7 @@ function convertImage()
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'png', 'JPEG', 'JPG'];
             if (in_array($extension, $allowedExtensions) && in_array($mimetype, array('image/jpeg', 'image/gif', 'image/png', 'image/JPEG', 'image/jpg', 'image/JPG'))) {
                 $filePath = basename($_FILES['picture']['name']);
-                move_uploaded_file($_FILES['picture']['tmp_name'], 'images/'. $filePath);
+                move_uploaded_file($_FILES['picture']['tmp_name'], 'images/' . $filePath);
 
             } else {
                 echo '<div class="alert alert-danger" role="alert">Le fichier doit être une image</div>';
@@ -64,3 +64,15 @@ function createUser($lastName, $firstName, $userName, $mail, $password, $picture
 
     ]);
 }
+
+function findUser($mail)
+{
+    $db = connectDatabase();
+    $sqlQuery = "SELECT mail, password FROM users WHERE mail = :mail LIMIT 1";
+    $connexionStatement = $db->prepare($sqlQuery);
+    $connexionStatement->execute(['mail' => $mail]);
+    return $connexionStatement->fetch();
+}
+
+
+

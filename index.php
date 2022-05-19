@@ -1,3 +1,4 @@
+
 <?php include_once('./include/fonctions.php') ?>
 
 <!DOCTYPE html>
@@ -8,6 +9,7 @@
     <title>Accueil Snow Tricks</title>
 </head>
 <?php include_once('./include/header.php') ?>
+<?= 'Bonjour ' .$_SESSION['loggedUser']['last_name'] ?>
 <body>
 
 <section class="section-title">
