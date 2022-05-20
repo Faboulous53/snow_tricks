@@ -1,5 +1,4 @@
-<body>
-<!-- https://themezhub.net/rentup-live/rentup/home-3.html -->
+
 
 <header id="main-header">
     <div class="container">
@@ -16,17 +15,19 @@
                             </a>
                         </li>
                         <li class="sub-menu">
+                            <?php if (isLogged()): ?>
                             <a href="properties.html">
                                 Gestion des tricks
                             </a>
                             <ul>
                                 <li>
-                                    <a href="listProperty.php">Ajouter un tricks</a>
+                                    <a href="create_tricks.php">Créer un tricks</a>
                                 </li>
                                 <li>
-                                    <a href="createProperty.php">Modifier un tricks</a>
+                                    <a href="">Modifier un tricks</a>
                                 </li>
                             </ul>
+                            <?php endif ?>
                         </li>
                         <li>
                             <a href="inscription.php">
@@ -35,15 +36,27 @@
                         </li>
                     </ul>
                 </nav>
+                <?php if (isLogged()): ?>
                 <nav class="user-navigation">
                     <ul>
                         <li>
-                            <a href="connexion.php" class="btn btn-primary">
-                                Se Connecter
+                            <a href="logout.php" class="btn btn-primary">
+                                Se Déconnecter
                             </a>
                         </li>
                     </ul>
                 </nav>
+                <?php else: ?>
+                <nav class="user-navigation">
+                    <ul>
+                        <li>
+                            <a href="connexion.php" class="btn btn-primary">
+                                connexion
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <?php endif ?>
             </div>
         </div>
     </div>

@@ -1,10 +1,6 @@
 <?php session_start();?>
 <?php include_once('./include/fonctions.php') ?>
-<?php
-if(!isLogged()) {
-header('Location: connexion.php');
-}
-?>
+
 <!DOCTYPE html>
 <html lang="fr-FR">
 
@@ -12,13 +8,15 @@ header('Location: connexion.php');
     <?php include_once('./include/head.php') ?>
     <title>Accueil Snow Tricks</title>
 </head>
-<?php include_once('./include/header.php') ?>
+
 
 <body>
-
+<?php include_once('./include/header.php') ?>
+<?php if (isLogged()): ?>
 <div class="alert alert-success" role="alert">
     <?= 'Bonjour ' . $_SESSION['user']["last_name"]." ". $_SESSION['user']["first_name"] ?>
 </div>
+<?php endif ?>
 
 <section class="section-title">
     <div class="container principal-title">

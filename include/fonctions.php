@@ -16,7 +16,6 @@ function connectDatabase()
 
 function getTricks()
 {
-
     $db = connectDatabase();
     $query = 'SELECT * FROM propertyType';
     $statement = $db->prepare($query);
@@ -68,6 +67,7 @@ function createUser($lastName, $firstName, $userName, $mail, $password, $picture
 function findUser($mail)
 {
     $db = connectDatabase();
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $sqlQuery = "SELECT * FROM users WHERE mail = :mail LIMIT 1";
     $connexionStatement = $db->prepare($sqlQuery);
     $connexionStatement->execute(['mail' => $mail]);
@@ -87,13 +87,42 @@ function logout()
  */
 function isLogged(): bool
 {
-    if(isset($_SESSION['user'])) {
+    if (isset($_SESSION['user'])) {
         return true;
     }
 
     return false;
 }
 
+function createTrickById($name, $description,  $mainPhoto, $idGroup)
+{
+    $db = connectDatabase();
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+    $sqlQuery = "INSERT INTO tricks (name, description, main_photo, id_user, id_tricks_group) 
+    VALUES (:name,:description ,:main_photo,:id_user ,:tricks_id)";
+    $userStatement = $db->prepare($sqlQuery);
+
+    $userStatement->execute([
+        'name' => $name,
+        'description' => $description,
+        'main_photo' => $mainPhoto,
+        'id_user' => $_SESSION["user"]["id"],
+        'tricks_id' => $idGroup
+
+
+    ]);
+}
+
+function getTricksGroup()
+{
+    $db = connectDatabase();
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $query = 'SELECT * FROM tricks_group';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    return $statement->fetchAll();
+}
 
 
 
