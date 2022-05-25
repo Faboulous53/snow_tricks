@@ -11,7 +11,9 @@
 
 
 <body>
+
 <?php include_once('./include/header.php') ?>
+<main>
 <?php if (isLogged()): ?>
 <div class="alert alert-success" role="alert">
     <?= 'Bonjour ' . $_SESSION['user']["last_name"]." ". $_SESSION['user']["first_name"] ?>
@@ -25,12 +27,11 @@
 </section>
 
 
+<?php include_once('./include/test-card-tricks.php') ?>
 
-<article class="card">
-    <div class="card-img-container">
-        <?php include_once('./include/index_tricks.php') ?>
-    </div>
-    <?php include_once('./include/footer.php') ?>
+
+</main>
+<?php include_once('./include/footer.php') ?>
 </body>
 <script src="dist/app.js"></script>
 </html>

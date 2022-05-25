@@ -71,7 +71,7 @@ if(!empty($_POST)){
 
 
 
-
+<?php include_once('./include/footer.php') ?>
 
 </body>
 </html>

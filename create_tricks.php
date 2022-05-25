@@ -1,31 +1,32 @@
 <?php include_once('./include/fonctions.php') ?>
 <?php session_start();?>
+<?php if(!isLogged()) {
+    header('Location: index.php');
+}
+?>
 <?php
+
+
 
 if (!empty($_POST)) {
     if (isset($_POST["name"], $_POST["description"], $_POST["tricks_id"], $_FILES["picture"]['name'])
         && !empty($_POST["name"])
         && !empty($_POST["description"])
         && !empty($_POST["tricks_id"])
-        && !empty($_FILES["picture"]['name'])) {
-
+        && !empty($_FILES["picture"]['name']) === false) {
+        $message = "une erreur est survenue";
+    }else{
         convertImage();
-
 
         createTrickById($_POST["name"],
                         $_POST["description"],
                         $_FILES["picture"]['name'],
                         $_POST["tricks_id"]);
 
-
-
-
-
-           // header('Location: index.php');
-
+        header("location:confirm-add-trick.php");
     }
 }
-; ?>
+ ?>
 
 
 <!DOCTYPE html>
@@ -68,7 +69,12 @@ if (!empty($_POST)) {
             <label class="form-label" for="formFile" class="form-label">Veuillez insérer la photo principale
             </label><input class="form-control" type="file" id="picture" name="picture">
         </div>
-        <button class="btn1 btn-primary" type="submit">Envoyer</button><br>
+        <button class="btn btn-primary" type="submit">Envoyer</button><br>
+        <?php if (isset($messageErreur)): ?>
+            <div class="alert alert-danger" role="alert">
+                <?= $messageErreur ?>
+            </div>
+        <?php endif ?>
 
 
     </form>

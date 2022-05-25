@@ -10,7 +10,7 @@
                 <nav class="main-navigation">
                     <ul>
                         <li>
-                            <a href="index.php">
+                            <a href="list-tricks.php">
                                 Annuaire des figures
                             </a>
                         </li>

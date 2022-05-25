@@ -2,114 +2,181 @@
 @use '../abstracts/variables';
 
 .badge {
-    background-color: #ff6922;
-    color: white;
-    width: 80px;
-    border-radius: 20px;
-    padding: 10px;
-    margin: 10px;
-    justify-content: start;
+  background-color: #ff6922;
+  color: white;
+  width: 80px;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+  justify-content: start;
 }
 
 .agents-list {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 0.1fr);
+  gap: 1rem;
 
-    .card {
-        width: 300px;
-        margin: 1rem;
-        
-        .card-img-container {
-            text-align: center;
-        
-            .agent-img {
-                position: relative;
-                margin: 1rem 5rem;
-                border: 6px solid #edf0f5;
-                border-radius: 50%;
-                padding: 0.5rem;
-                width: 100px;
-                height: 100px;
-
-                    .agent-photo {
-                    border-radius: 50%;
-                    width: 100%;
-                    height: 100%;
-                    }
-
-                    .check {
-                       position: absolute;
-                       max-width: 15px;
-                       max-height: 15px;
-                       right: 0;
-                       top: 50px;
-                    }
-                }
-
-            .agent-localisation {
-                color: variables.$color-tertiary;
-            }
-
-            .agent-name:hover {
-                color: variables.$color-primary;
-            }
-
-            .agent-contact {
-                ul {
-                    display: inline-flex;
-                    padding: 0;
-                }
-                li {
-                    list-style-type: none;
-                }
-                a {
-                    text-decoration: none;
-                    margin: 0 0.8rem;
-                    padding: 0.5rem 0.7rem;
-                    border-radius: 50%;
-                    background-color: #f4f5f7;
-                }
-                
-                #facebook {
-                    color: #3f51b5;
-                }
-
-                #linkedin {
-                    color: #07a5ad;
-                }
-
-                #instagram {
-                    color: #b642ca;
-                }
-
-                #twitter {
-                    color: #03a9f4;
-                }
-            }
-
-            .card-footer {
-                border-top: none;
-                justify-content: center;
-                margin: 15px 0;
-
-                .btn {
-                    padding: 12px 15px;
-                }
-            }
-        }
-    }
 }
 
-@include mixins.desktop {
-    .agents-list {
-        grid-template-columns: repeat(2, 1fr);
+/////////////////////
+
+
+
+// variables
+$card-width:  350px;
+$card-height: 500px;
+$h-color:     #9CC9E3;
+$yellow:      #D0BB57;
+$txt-color:   #DCE3E7;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.blog-card{
+  width: $card-width;
+  height: $card-height;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -250px 0 0 -175px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
+  text-align: center;
+
+  &.spring-fever{
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/bg-blog-card.jpg) no-repeat;
+  }
+
+  .color-overlay{
+    /* Rectangle 11: */
+    background: rgba(84,104,110,0.4);
+    width: $card-width;
+    height: $card-height;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    transition: background .3s cubic-bezier(.33,.66,.66,1);
+  }
+  .gradient-overlay{
+    /* bg-gradient: */
+    background-image: -webkit-linear-gradient(rgba(0,0,0,0.00) 0%, rgba(0,0,0,.6) 21%);
+    background-image: -moz-linear-gradient(rgba(0,0,0,0.00) 0%, rgba(0,0,0,.6) 21%);
+    background-image: -o-linear-gradient(rgba(0,0,0,0.00) 0%, rgba(0,0,0,.6) 21%);
+    background-image: linear-gradient(rgba(0,0,0,0.00) 0%, rgba(0,0,0,.6) 21%);
+    width: $card-width;
+    height: $card-height;
+    position: absolute;
+    top: 350px;
+    left: 0;
+    z-index: 15;
+  }
+
+  &:hover{
+
+    .card-info{
+      opacity: 1;
+      bottom: 120px;
     }
+    .color-overlay{
+      background: rgba(84,104,110,0.8);
+    }
+  }
+}
+
+.title-content{
+  text-align: center;
+  margin: 70px 0 0 0;
+  position: absolute;
+  z-index: 20;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+h3{
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: $h-color;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 0;
+}
+hr{
+  width: 50px;
+  height: 3px;
+  margin: 20px auto;
+  border: 0;
+  background: $yellow;
+}
+.intro{
+  width: 170px;
+  margin: 0 auto;
+  color: $txt-color;
+  font-family: 'Droid Serif', serif;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 18px;
+}
+.card-info{
+  width: 100%;
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  margin: 0 auto;
+  padding: 0 50px;
+  color: $txt-color;
+  font-family: 'Droid Serif', serif;
+  font-style: 16px;
+  line-height: 24px;
+  z-index: 20;
+  opacity: 0;
+  transition: bottom .3s, opacity .3s cubic-bezier(.33,.66,.66,1);
+}
+
+.utility-info{
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  z-index: 20;
+}
+.utility-list{
+  list-style-type: none;
+  margin: 0 0 30px 20px;
+  padding: 0;
+  width: 100%;
+
+  li{
+    margin: 0 15px 0 0;
+    padding: 0 0 0 22px;
+    display: inline-block;
+    color: $txt-color;
+    font-family: 'Roboto', sans-serif;
+
+    &.comments{
+      background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/icon-chat.svg) no-repeat 0 .1em;
+    }
+    &.date{
+      background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/icon-calendar.svg) no-repeat 0 .1em;
+    }
+  }
+}
+
+///////////////////////////////////
+@include mixins.desktop {
+  .agents-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @include mixins.smartphone {
-    .agents-list {
-        grid-template-columns: repeat(1, 1fr);
-    }
+  .agents-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
