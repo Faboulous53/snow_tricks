@@ -119,5 +119,6 @@ if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
 
 
 </div>
+<?php include_once('./include/footer.php') ?>
 </body>
 </html>

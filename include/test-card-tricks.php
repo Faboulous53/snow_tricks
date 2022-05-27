@@ -1,33 +1,33 @@
+
 <?php include_once('./include/fonctions.php') ?>
 <section class="section">
     <div class="container">
         <div class="agents-list">
-            <section class="cards">
+            <?php foreach (getTricks() as $tricks) : ?>
 
+                <figure class="snip0056">
+                    <figcaption>
+                        <h2><?= ($tricks[1]) ?></h2>
 
-                <div class="blog-card spring-fever">
-                    <div class="title-content">
-                        <h3>SPRING FEVER</h3>
-                        <hr />
-                        <div class="intro">Yllamco laboris nisi ut aliquip ex ea commodo.</div>
-                    </div><!-- /.title-content -->
-                    <div class="card-info">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
-                    </div><!-- /.card-info -->
-                    <div class="utility-info">
-                        <ul class="utility-list">
-                            <li class="comments">12</li>
-                            <li class="date">03.12.2015</li>
-                        </ul>
-                    </div><!-- /.utility-info -->
-                    <!-- overlays -->
-                    <div class="gradient-overlay"></div>
-                    <div class="color-overlay"></div>
-                </div><!-- /.blog-card -->
+                        <?php if (isLogged() && $_SESSION['user']["id"] === (int)$tricks["id_user"]): ?>
+                        <p>Gestion de votre trick:</p>
 
+                            <a href="deleteTrick.php?id=<?= (int)($tricks['id']) ?>"
+                               onclick="return confirm('Êtes-vous certain de vouloir supprimer <?= ($tricks['name']) ?>?')">
+                            <i class="fa fa-trash"></i>
+                            </a>
 
-            </section>
+                            <a href="">
+                            <i href="" class="p-2 fa fa-wrench" ></i>
+                            </a>
+
+                        <?php endif; ?>
+                    </figcaption>
+                    <img src="../images/<?= ($tricks['main_photo']) ?>" alt="sample8"/>
+                    <div class="position"><?= ($tricks['name']) ?></div>
+                </figure>
+            <?php endforeach; ?>
         </div>
     </div>
-</section>
 
+</section>

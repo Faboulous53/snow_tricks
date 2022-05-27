@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php include_once('./include/fonctions.php') ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -14,6 +15,7 @@
 
 $tricks = getTrickID($_GET['id']);
          deleteTrick($_GET['id']);
+
 
 echo ("<br><br><br><br><br><br><br>
         <div class='container container-inscription'>

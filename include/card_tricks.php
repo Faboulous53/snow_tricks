@@ -15,7 +15,6 @@
                         <p class="card-text"><?= ($tricks['description']) ?></p>
                     </div>
                     <?php if (isLogged() && $_SESSION['user']["id"] === (int)$tricks["id_user"]): ?>
-
                     <div class="flex-row-reverse">
 
                         <a href="deleteTrick.php?id=<?= (int)($tricks['id']) ?>"

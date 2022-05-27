@@ -21,7 +21,9 @@ function connectDatabase()
 function getTricks()
 {
     $db = connectDatabase();
-    $query = 'SELECT * FROM `tricks` ORDER BY id DESC LIMIT 10 ';
+    $query = 'SELECT tricks.*, tricks_group.name FROM `tricks`
+              INNER JOIN tricks_group on tricks.id_tricks_group = tricks_group.id
+              ORDER BY id DESC LIMIT 10 ';
     $statement = $db->prepare($query);
     $statement->execute();
     return $statement->fetchAll();
@@ -185,23 +187,11 @@ function deleteTrick($trickId)
     $sqlQuery = "DELETE FROM tricks WHERE id = :id";
     $trickStatement = $db->prepare($sqlQuery);
     $trickStatement->execute([
-        'id' => $_SESSION['user']["id"]
+        'id' => $trickId
     ]);
 }
 
-//function getCurrentUser()
-//{
-//    if (isset($_SESSION['user'])) {
-//        $db = connectDatabase();
-//        $sqlQuery = "SELECT * FROM users WHERE id = :id";
-//        $userstatement = $db->prepare($query);
-//        $userstatement->execute([
-//            'id' => $_SESSION['user']
-//        ]);
-//        return $
-//    }
-//
-//}
+
 /**
  * @param int $trickId
  * @return Remark[]|false
