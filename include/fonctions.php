@@ -1,13 +1,13 @@
 <?php
-require_once __DIR__."/../entity/Remark.php";
+require_once __DIR__ . "/../entity/Remark.php";
 
 function connectDatabase()
 {
     try {
         $db = new PDO('mysql:host=localhost;dbname=snow_tricks;charset=utf8', 'root', 'Not24get',
-            [   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_EMULATE_PREPARES => false,
-                ]);
+            ]);
         return $db;
 
     } catch (Exception $e) {
@@ -101,7 +101,7 @@ function isLogged(): bool
     return false;
 }
 
-function createTrickById($name, $description,  $mainPhoto, $idGroup)
+function createTrickById($name, $description, $mainPhoto, $idGroup)
 {
     $db = connectDatabase();
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
@@ -145,7 +145,7 @@ function listTricksByUser()
 
 function canUpdateOrDeleteTrick($tricks)
 {
-    if($_SESSION['user']["id"] === $tricks["id_user"]) {
+    if ($_SESSION['user']["id"] === $tricks["id_user"]) {
         return true;
     }
 
@@ -168,7 +168,7 @@ function getTrickByID($trickId)
 {
     $db = connectDatabase();
     $sqlQuery = "
-    SELECT tricks.* FROM tricks
+    SELECT tricks.* , users.*, tricks_group.* FROM tricks
     INNER JOIN users ON tricks.id_user = users.id 
     INNER JOIN tricks_group on tricks.id_tricks_group = tricks_group.id 
     WHERE tricks.id = :id";
@@ -205,6 +205,21 @@ function getRemarksByTrickId(int $trickId)
         'id' => $trickId
     ]);
     return $remarksStatement->fetchAll(PDO::FETCH_CLASS, Remark::class);
+}
+
+function getModificationTrickByID()
+{
+    $db = connectDatabase();
+    $sqlQuery = "
+    SELECT tricks.* ,  users.last_name, users.first_name, users.username FROM tricks
+    INNER JOIN users ON tricks.id_user = users.id     
+    WHERE tricks.id = ?";
+    $trickStatement = $db->prepare($sqlQuery);
+    $trickStatement->execute([
+         $_GET['id']
+    ]);
+
+    return $trickStatement->fetchAll();
 }
 
 

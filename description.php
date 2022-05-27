@@ -7,6 +7,7 @@ $remarks = getRemarksByTrickId($id);
 
 
 
+
 ; ?>
 
 <!DOCTYPE html>
@@ -23,11 +24,12 @@ $remarks = getRemarksByTrickId($id);
 <div class="container container-inscription">
 
 
-    <h1 style="text-align: center"><?= $trick['name']; ?></h1>
+    <h1 style="text-align: center"><?= $trick[2]; ?></h1>
     <img style="border-radius: 10px; max-width:300px " src="./images/<?= $trick['main_photo']; ?>" alt="">
     <hr>
-    <h2> Mise en ligne part:</h2>
+    <h2> Mise en ligne part: <?= $trick['username']; ?> </h2>
     <p>Description de la trick</p>
+    <p><?= $trick['description']; ?></p>
     <?php foreach ($remarks as $remark ) : ?>
         <p><?= $remark->getContent(); ?></p>
         <p><?= $remark->getCreateAt()->format("d/m/Y"); ?></p>

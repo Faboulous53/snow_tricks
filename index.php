@@ -15,8 +15,9 @@
 <?php include_once('./include/header.php') ?>
 <main>
 <?php if (isLogged()): ?>
-<div class="alert alert-success" role="alert">
-    <?= 'Bonjour ' . $_SESSION['user']["last_name"]." ". $_SESSION['user']["first_name"] ?>
+<div class="alert alert-success" role="alert" style="max-width: 20%; max-height: 80px">
+    <?= 'Bonjour ' . $_SESSION['user']["last_name"]." ". $_SESSION['user']["first_name"]." "."!" ?>
+        <p>Vous êtes connecté(e).</p>
 </div>
 <?php endif ?>
 

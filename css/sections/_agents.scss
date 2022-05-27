@@ -34,11 +34,13 @@ figure.snip0056 {
   color: white;
   border-radius: 15px;
 }
+
 figure.snip0056 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 
 }
+
 figure.snip0056 > img {
 
   border-radius: 50%;
@@ -54,6 +56,7 @@ figure.snip0056 > img {
   object-fit: cover;
   width: 48%;
 }
+
 figure.snip0056 figcaption {
   padding: 20px 30px 20px 20px;
   position: absolute;
@@ -69,29 +72,35 @@ figure.snip0056 figcaption p {
   padding: 10px 0;
   width: 100%;
 }
+
 figure.snip0056 figcaption h2 {
   font-size: 1.3em;
   font-weight: 300;
   text-transform: uppercase;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
+
 figure.snip0056 figcaption h2 span {
   font-weight: 800;
 }
+
 figure.snip0056 figcaption p {
   font-size: small;
 
 }
+
 figure.snip0056 figcaption .icons {
   width: 100%;
   text-align: left;
 }
-figure.snip0056 figcaption .icons  {
+
+figure.snip0056 figcaption .icons {
   font-size: 26px;
   padding: 5px;
   top: 50%;
   color: #000000;
 }
+
 figure.snip0056 figcaption a {
   flex-direction: row-reverse;
   align-content: space-around;
@@ -99,10 +108,12 @@ figure.snip0056 figcaption a {
   color: white;
   font-size: 30px;
 }
+
 figure.snip0056 figcaption a:hover {
   opacity: 0.8;
 
 }
+
 figure.snip0056 .position {
   width: 100%;
   text-align: left;
@@ -115,23 +126,19 @@ figure.snip0056 .position {
   clear: both;
 
 }
+
 figure.snip0056.blue .position {
   background: #20638f;
 }
-figure.snip0056.red .position {
-  background: #962d22;
-}
-figure.snip0056.yellow .position {
-  background: #bf6516;
-}
+
+
 figure.snip0056:hover > img,
 figure.snip0056.hover > img {
   right: -12%;
+
+
+
 }
-
-
-
-
 
 
 ///////////////////////////////////

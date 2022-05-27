@@ -88,6 +88,7 @@ if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
 
 
 <body>
+<main>
 <div class="container container-inscription">
 
     <div class="structure">
@@ -119,6 +120,7 @@ if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
 
 
 </div>
+</main>
 <?php include_once('./include/footer.php') ?>
 </body>
 </html>
