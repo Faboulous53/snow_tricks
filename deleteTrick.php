@@ -12,32 +12,35 @@
 
 <?php
 
+$message = "Votre trick a bien été supprimé.";
+$deleted = deleteTrick($_GET['id']);
+if(!$deleted){
+    $message = "Impossible de supprimer le trick.";
+}
 
-$tricks = getTrickID($_GET['id']);
-         deleteTrick($_GET['id']);
 
-
-echo ("<br><br><br><br><br><br><br>
+ ?>
+    <br><br><br><br><br><br><br>
         <div class='container container-inscription'>
             <div class='mb-3'>
                 <div class='section-home-content-inscription' style='text-align: center'>
                 <br>
-                    <h2>Votre trick a bien été supprimé.</h2>    
-                    <p>Vous allez être rediriger dans 5 secondes. </p>                
+                    <h2><?= $message; ?></h2>
+                    <p>Vous allez être rediriger dans 5 secondes. </p>
                 </div>
              </div>
-        </div>   
+        </div>
         <script>
 
         setTimeout(function () {
-            window.location = \"index.php\";
+            window.location = "index.php";
         }, 5000);
 
     </script>   
-        ");
 
 
-?>
+
+
 
 </main>
 <?php include_once('./include/footer.php') ?>

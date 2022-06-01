@@ -21,13 +21,11 @@
             <input class="form-control c" type="text" id="last_name" name="last_name"
                    placeholder="Insérez votre nom" required>
         </div>
-        <br>
         <div class="mb-3">
             <label class="form-label" for="first_name">Prénom</label>
             <input class="form-control" type="text" class="form-control" id="first_name" name="first_name"
                    placeholder="Insérez votre prénom" required>
         </div>
-        <br>
         <div class="mb-3">
             <label class="form-label" for="username">Pseudo</label>
             <input class="form-control" id="username" name="username" placeholder="Insérez votre pseudo" required>
@@ -55,7 +53,7 @@
         <a href="connexion.php">se connecter</a>
     </form>
 </div>
-<?php include_once('./include/header.php') ?>
+<?php include_once('./include/footer.php') ?>
 </body>
 </html>
 

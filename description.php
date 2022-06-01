@@ -3,11 +3,6 @@
 $id = $_GET['id'];
 $trick = getTrickByID($id);
 $remarks = getRemarksByTrickId($id);
-
-
-
-
-
 ; ?>
 
 <!DOCTYPE html>
@@ -24,7 +19,7 @@ $remarks = getRemarksByTrickId($id);
 <div class="container container-inscription">
 
 
-    <h1 style="text-align: center"><?= $trick[2]; ?></h1>
+    <h1 style="text-align: center"><?= $trick[1]; ?></h1>
     <img style="border-radius: 10px; max-width:300px " src="./images/<?= $trick['main_photo']; ?>" alt="">
     <hr>
     <h2> Mise en ligne part: <?= $trick['username']; ?> </h2>
@@ -37,7 +32,8 @@ $remarks = getRemarksByTrickId($id);
 
 
 </div>
-<?php include_once('./include/header.php') ?>
+
 </body>
 </main>
+<?php include_once('./include/footer.php') ?>
 </html>

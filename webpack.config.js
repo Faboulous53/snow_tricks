@@ -1,10 +1,9 @@
 const path = require('path');
 
 module.exports = {
-    entry: './js/script.js',
+    entry: ['./css/style.scss'],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: 'dist/',
         filename: 'app.js',
     },
     module: {

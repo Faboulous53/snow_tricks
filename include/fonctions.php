@@ -101,11 +101,9 @@ function isLogged(): bool
     return false;
 }
 
-function createTrickById($name, $description, $mainPhoto, $idGroup)
+function createTrickById($name, $description, $mainPhoto, $idGroup, $youtubes)
 {
     $db = connectDatabase();
-    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-
     $sqlQuery = "INSERT INTO tricks (name, description, main_photo, id_user, id_tricks_group) 
     VALUES (:name,:description ,:main_photo,:id_user ,:tricks_id)";
     $userStatement = $db->prepare($sqlQuery);
@@ -116,8 +114,27 @@ function createTrickById($name, $description, $mainPhoto, $idGroup)
         'main_photo' => $mainPhoto,
         'id_user' => $_SESSION["user"]["id"],
         'tricks_id' => $idGroup
-
     ]);
+    $idTrick = $db->lastInsertId();
+    foreach ($youtubes as $youtube) {
+        createMedia(null, $youtube, $idTrick, "youtube");
+    }
+}
+
+function createMedia($path, $html, $tricks, $type)
+{
+
+    $db = connectDatabase();
+    $sqlQuery = "INSERT INTO medias (path, html, type, id_ticks) 
+    VALUES (:path, :html, :type, :id_tricks)";
+    $mediaStatement = $db->prepare($sqlQuery);
+    $mediaStatement->execute([
+        "path" => $path,
+        "html" => $html,
+        "type" => $type,
+        "id_tricks" => $tricks
+    ]);
+
 }
 
 function getTricksGroup()
@@ -183,12 +200,17 @@ function getTrickByID($trickId)
 
 function deleteTrick($trickId)
 {
-    $db = connectDatabase();
-    $sqlQuery = "DELETE FROM tricks WHERE id = :id";
-    $trickStatement = $db->prepare($sqlQuery);
-    $trickStatement->execute([
-        'id' => $trickId
-    ]);
+    $trick = getTrickByID($trickId);
+    if (isLogged() && $_SESSION['user']["id"] === (int)$trick["id_user"]) {
+        $db = connectDatabase();
+        $sqlQuery = "DELETE FROM tricks WHERE id = :id";
+        $trickStatement = $db->prepare($sqlQuery);
+        $trickStatement->execute([
+            'id' => $trickId
+        ]);
+        return true;
+    }
+    return false;
 }
 
 
@@ -216,7 +238,7 @@ function getModificationTrickByID()
     WHERE tricks.id = ?";
     $trickStatement = $db->prepare($sqlQuery);
     $trickStatement->execute([
-         $_GET['id']
+        $_GET['id']
     ]);
 
     return $trickStatement->fetchAll();

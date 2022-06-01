@@ -9,6 +9,7 @@
 
 
 if (!empty($_POST)) {
+
     if (isset($_POST["name"], $_POST["description"], $_POST["tricks_id"], $_FILES["picture"]['name'])
         && !empty($_POST["name"])
         && !empty($_POST["description"])
@@ -21,7 +22,9 @@ if (!empty($_POST)) {
         createTrickById($_POST["name"],
                         $_POST["description"],
                         $_FILES["picture"]['name'],
-                        $_POST["tricks_id"]);
+                        $_POST["tricks_id"],
+                        $_POST["youtube"]);
+
 
         header("location:confirm-add-trick.php");
     }
@@ -69,6 +72,8 @@ if (!empty($_POST)) {
             <label class="form-label" for="formFile" class="form-label">Veuillez insérer la photo principale
             </label><input class="form-control" type="file" id="picture" name="picture">
         </div>
+        <button class="btn btn-primary" id="add-youtube" type="button">Ajouter vidéo Youtube</button><br>
+        <div id="inputs-youtube"></div>
         <button class="btn btn-primary" type="submit">Envoyer</button><br>
         <?php if (isset($messageErreur)): ?>
             <div class="alert alert-danger" role="alert">
@@ -81,6 +86,7 @@ if (!empty($_POST)) {
 </div>
     <?php include_once('./include/footer.php') ?>
 </main>
-
+<script src="script.js"></script>
 </body>
+
 </html>

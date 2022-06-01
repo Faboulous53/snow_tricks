@@ -1,4 +1,5 @@
 <?php include_once('./include/fonctions.php') ?>
+<?php session_start();?>
 
 <!DOCTYPE html>
 <html lang="fr">
