@@ -1,0 +1,30 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.section {
+    padding: 2rem 0;
+
+    &.section-bg-grey {
+        background-color: lightgrey;
+    }
+
+    &.section-bg-green {
+        background-color: variables.$color-primary;
+    }
+
+    &.section-bg-dark-grey {
+        background-color: white;
+
+    }
+    
+    .section-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 15rem;
+
+        p {
+            text-align: center;
+        }
+    }
+}
