@@ -26,15 +26,15 @@
                             </a>
                         </li>
                         <li class="sub-menu">
-                            <a href="properties.html">
+                            <a href="">
                                 Gestion des tricks
                             </a>
                             <ul>
                                 <li>
-                                    <a href="listProperty.php">Ajouter un tricks</a>
+                                    <a href="create_tricks.php">Ajouter un tricks</a>
                                 </li>
                                 <li>
-                                    <a href="createProperty.php">Modifier un tricks</a>
+                                    <a href="">Modifier un tricks</a>
                                 </li>
                             </ul>
                         </li>
@@ -65,12 +65,12 @@
         <h1>Réinitialisation mot de passe</h1>
     </div>
 
-    <form action="../connexion.php" style="text-align: center" method="POST">
+    <form action="create_token.php" style="text-align: center" method="POST">
         <img class="img-connexion" src="../images/password.png" alt="logo-forgot" width="100">
         <br><br>
         <div class="mb-3">
             <label class="form-label" for="">Adresse mail</label>
-            <input type="email" class="form-control" id="email" name="mail"
+            <input type="email" class="form-control" id="mail" name="mail"
                    placeholder="Insérez votre mail">
         </div>
         <div class="mb-3">
@@ -82,6 +82,8 @@
 
 
 </div>
+
 </body>
+<?php include_once('../include/footer.php') ?>
 </html>
 

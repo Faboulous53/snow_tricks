@@ -30,7 +30,7 @@ function getTricks()
 }
 
 
-function convertImage()
+function uploadImage()
 {
     if ($_FILES['picture']['error'] == 0) {
         if ($_FILES['picture']['size'] <= 5000000) {
@@ -105,7 +105,7 @@ function createTrickById($name, $description, $mainPhoto, $idGroup, $youtubes)
 {
     $db = connectDatabase();
     $sqlQuery = "INSERT INTO tricks (name, description, main_photo, id_user, id_tricks_group) 
-    VALUES (:name,:description ,:main_photo,:id_user ,:tricks_id)";
+    VALUES (:name,:description ,:main_photo,:id_user ,:tricks_group_id)";
     $userStatement = $db->prepare($sqlQuery);
 
     $userStatement->execute([
@@ -113,7 +113,7 @@ function createTrickById($name, $description, $mainPhoto, $idGroup, $youtubes)
         'description' => $description,
         'main_photo' => $mainPhoto,
         'id_user' => $_SESSION["user"]["id"],
-        'tricks_id' => $idGroup
+        'tricks_group_id' => $idGroup
     ]);
     $idTrick = $db->lastInsertId();
     foreach ($youtubes as $youtube) {
@@ -125,7 +125,7 @@ function createMedia($path, $html, $tricks, $type)
 {
 
     $db = connectDatabase();
-    $sqlQuery = "INSERT INTO medias (path, html, type, id_ticks) 
+    $sqlQuery = "INSERT INTO medias (path, html, type, id_tricks) 
     VALUES (:path, :html, :type, :id_tricks)";
     $mediaStatement = $db->prepare($sqlQuery);
     $mediaStatement->execute([
@@ -134,7 +134,17 @@ function createMedia($path, $html, $tricks, $type)
         "type" => $type,
         "id_tricks" => $tricks
     ]);
+}
 
+function deleteMediaByTrickId($trickID){
+
+    $db = connectDatabase();
+    $sqlQuery = "DELETE FROM medias
+                 WHERE id_tricks = :id_tricks";
+    $mediaStatement = $db->prepare($sqlQuery);
+    $mediaStatement->execute([
+        "id_tricks" => $trickID
+    ]);
 }
 
 function getTricksGroup()
@@ -185,7 +195,7 @@ function getTrickByID($trickId)
 {
     $db = connectDatabase();
     $sqlQuery = "
-    SELECT tricks.* , users.*, tricks_group.* FROM tricks
+    SELECT tricks.* , users.*, tricks_group.name AS tricks_group_name FROM tricks
     INNER JOIN users ON tricks.id_user = users.id 
     INNER JOIN tricks_group on tricks.id_tricks_group = tricks_group.id 
     WHERE tricks.id = :id";
@@ -229,19 +239,63 @@ function getRemarksByTrickId(int $trickId)
     return $remarksStatement->fetchAll(PDO::FETCH_CLASS, Remark::class);
 }
 
-function getModificationTrickByID()
+
+function findUserByEmail($mail)
 {
     $db = connectDatabase();
-    $sqlQuery = "
-    SELECT tricks.* ,  users.last_name, users.first_name, users.username FROM tricks
-    INNER JOIN users ON tricks.id_user = users.id     
-    WHERE tricks.id = ?";
-    $trickStatement = $db->prepare($sqlQuery);
-    $trickStatement->execute([
-        $_GET['id']
+    $sqlQuery = "SELECT *  FROM users WHERE mail = :mail LIMIT 1";
+
+    $connexionStatement = $db->prepare($sqlQuery);
+
+    $connexionStatement->execute([
+        'mail' => $mail
     ]);
 
-    return $trickStatement->fetchAll();
+    return $connexionStatement->fetch();
+
+};
+
+function getMediabyTrick($trickId)
+{
+    $db = connectDatabase();
+    $sqlQuery = "SELECT medias.*  FROM medias WHERE medias.id_tricks = :trickId";
+    $mediaStatement = $db->prepare($sqlQuery);
+    $mediaStatement->execute([
+        "trickId" => $trickId
+    ]);
+    return $mediaStatement->fetchAll();
+
+}
+
+function modifyTrick($id, $name, $description, $mainPhoto, $idGroup, $youtubes)
+{
+
+    if(empty($mainPhoto))
+    {
+        $trick = getTrickByID($id);
+        $mainPhoto = $trick['main_photo'];
+
+    }
+
+    $db = connectDatabase();
+    $sqlQuery = "UPDATE tricks SET     
+    name=:name,
+    description=:description,
+    main_photo=:main_photo,   
+    id_tricks_group=:id_group 
+    WHERE id=:id";
+    $trickStatement = $db->prepare($sqlQuery);
+    $trickStatement->execute([
+        "id" => $id,
+        "name" => $name,
+        "description" => $description,
+        "main_photo" => $mainPhoto,
+        "id_group" => $idGroup
+    ]);
+    deleteMediaByTrickId($id);
+    foreach ($youtubes as $youtube) {
+        createMedia(null, $youtube, $id, "youtube");
+    }
 }
 
 

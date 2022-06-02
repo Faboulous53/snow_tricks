@@ -109,7 +109,7 @@ if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
                    placeholder="mot de passe" required>
         </div>
         <div class="mb-3">
-            <a href="./recoveryPassord/recovery-password.php">Mot de passe oublié?</a>
+            <a href="recoveryPassword/recovery-password.php">Mot de passe oublié?</a>
         </div>
         <div class="mb-3">
             <button class="btn btn-primary" type="submit">Se connecter</button>

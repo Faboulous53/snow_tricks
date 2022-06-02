@@ -24,7 +24,7 @@
                                     <a href="create_tricks.php">Créer un tricks</a>
                                 </li>
                                 <li>
-                                    <a href="">Modifier un tricks</a>
+                                    <a href="">Mes tricks</a>
                                 </li>
                             </ul>
                             <?php endif ?>
