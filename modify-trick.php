@@ -20,10 +20,11 @@ if (!empty($_POST)) {
         }
 
 
-        modifyTrick($id,$_POST["name"],
-            $_POST["description"],
-            $_FILES["picture"]['name'],
-            $_POST["tricks_group_id"],
+        modifyTrick($id,
+            strip_tags($_POST["name"]),
+            strip_tags($_POST["description"]),
+            strip_tags($_FILES["picture"]['name']),
+            strip_tags($_POST["tricks_group_id"]) ,
             isset($_POST["youtube"]) ? $_POST["youtube"] : []);
     }else{
 

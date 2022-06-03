@@ -1,5 +1,6 @@
 <?php session_start();?>
 <?php include_once('./include/fonctions.php') ?>
+<?php include_once('./include/variables.php') ?>
 
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -14,6 +15,17 @@
 
 <?php include_once('./include/header.php') ?>
 <main>
+    <?php if (isset($_GET["msg"])): ?>
+        <div class="alert alert-success" role="alert" style="max-width: 20%; max-height: 80px">
+            <p>Votre mot de passe a été réinitialisé.</p>
+        </div>
+        <script>
+            setTimeout(function () {
+                window.location = "index.php";
+            }, 5000);
+        </script>
+    <?php else: ?>
+        <?php endif ?>
 <?php if (isLogged()): ?>
 <div class="alert alert-success" role="alert" style="max-width: 20%; max-height: 80px">
     <?= 'Bonjour ' . $_SESSION['user']["last_name"]." ". $_SESSION['user']["first_name"]." "."!" ?>

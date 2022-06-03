@@ -8,7 +8,6 @@ include_once('./include/fonctions.php');
     <?php include_once('./include/head.php') ?>
 
 
-
     <script>
 
         setTimeout(function () {
@@ -20,24 +19,23 @@ include_once('./include/fonctions.php');
 </head>
 <body>
 <?php include_once('./include/header.php') ?>
-<section class="section-home">
-<div class='container container-validation'>
-    <div class='mb-3'>
+<main>
+    <section class="section-home">
+        <div class='container container-validation'>
+            <div class='mb-3'>
 
-        <div class='section-home-content-inscription' style='text-align: center'>
+                <div class='section-home-content-inscription' style='text-align: center'>
 
-            <h2>Votre Trick a bien été prise en compte</h2>
-            <p>Vous serez redirigé automatiquement vers
-                l'accueil dans 5 secondes</p>
+                    <h2>Votre Trick a bien été prise en compte</h2>
+                    <p>Vous serez redirigé automatiquement vers
+                        l'accueil dans 5 secondes</p>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-</section>
+    </section>
 
 
-
-
+</main>
 <?php include_once('./include/footer.php') ?>
-
 </body>
 </html>

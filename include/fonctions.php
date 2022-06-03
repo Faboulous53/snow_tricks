@@ -1,6 +1,10 @@
 <?php
 require_once __DIR__ . "/../entity/Remark.php";
 
+
+// Connexion à la base de données:
+// ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION: Afin d'afficher les erreurs de type
+// ATTR_EMULATE_PREPARES => false: Afin d'utiliser les requêtes préparées natives sans les émuler.
 function connectDatabase()
 {
     try {
@@ -17,7 +21,7 @@ function connectDatabase()
     }
 }
 
-
+//fonction créée pour générer l'affichage dynamique des tricks sur la page d'accueil.
 function getTricks()
 {
     $db = connectDatabase();
@@ -29,7 +33,7 @@ function getTricks()
     return $statement->fetchAll();
 }
 
-
+//fonction créée pour gérer l'upload d'image vers le dossier images du projet.
 function uploadImage()
 {
     if ($_FILES['picture']['error'] == 0) {
@@ -53,6 +57,7 @@ function uploadImage()
     }
 }
 
+////fonction créée pour la création d'un compte utilisateur.
 function createUser($lastName, $firstName, $userName, $mail, $password, $picture)
 {
     $db = connectDatabase();
@@ -71,6 +76,8 @@ function createUser($lastName, $firstName, $userName, $mail, $password, $picture
     ]);
 }
 
+//fonction créée trouver un utilisateur en fonction de l'utilisateur afin de générer
+// un message d'erreur en cas d'email introuvable.
 function findUser($mail)
 {
     $db = connectDatabase();
@@ -81,12 +88,15 @@ function findUser($mail)
     return $connexionStatement->fetch();
 }
 
+//
+//fonction créée afin de gérer la déconnexion de l'utilisateur.
 function logout()
 {
     session_destroy();
     setcookie('loggedUser');
 }
 
+//fonction créée afin de vérifier si un utilisateur est connecté avec retour d'un booléen.
 /**
  * Vérifie si l'utilisateur est connecté
  *
@@ -101,6 +111,7 @@ function isLogged(): bool
     return false;
 }
 
+//fonction créée pour créer une trick en fonction de l'utlisateur connecté.
 function createTrickById($name, $description, $mainPhoto, $idGroup, $youtubes)
 {
     $db = connectDatabase();
@@ -115,12 +126,14 @@ function createTrickById($name, $description, $mainPhoto, $idGroup, $youtubes)
         'id_user' => $_SESSION["user"]["id"],
         'tricks_group_id' => $idGroup
     ]);
+    //Afin de récupérer le dernier ID inséré.
     $idTrick = $db->lastInsertId();
     foreach ($youtubes as $youtube) {
         createMedia(null, $youtube, $idTrick, "youtube");
     }
 }
 
+//fonction créée pour gérer l'insertion de médias dans la table prévue à cet effet.
 function createMedia($path, $html, $tricks, $type)
 {
 
@@ -136,7 +149,11 @@ function createMedia($path, $html, $tricks, $type)
     ]);
 }
 
-function deleteMediaByTrickId($trickID){
+//fonction créée pour gérer la supression de médias en fonction de l'id de la trick concerné.
+//cette fonction est appelée lors de la modification d'une trick afin de supprimer les médias précèdents
+//avant la création des nouveaux.
+function deleteMediaByTrickId($trickID)
+{
 
     $db = connectDatabase();
     $sqlQuery = "DELETE FROM medias
@@ -147,6 +164,7 @@ function deleteMediaByTrickId($trickID){
     ]);
 }
 
+//fonction créée afin de pouvoir boucler sur les noms des groupes lors de la création d'une trick.
 function getTricksGroup()
 {
     $db = connectDatabase();
@@ -157,6 +175,7 @@ function getTricksGroup()
     return $statement->fetchAll();
 }
 
+//fonction créée afficher la liste de toutes tricks enregistrée en récupérant quelques données de l'utilisateur.
 function listTricksByUser()
 {
     $db = connectDatabase();
@@ -170,6 +189,8 @@ function listTricksByUser()
     return $statement->fetchAll();
 }
 
+//fonction créée pour gérer la condition de suppression d'une trick, seul l'utilisateur ayant crée la trick
+//peut la supprimer, retour d'un booléen.
 function canUpdateOrDeleteTrick($tricks)
 {
     if ($_SESSION['user']["id"] === $tricks["id_user"]) {
@@ -179,18 +200,8 @@ function canUpdateOrDeleteTrick($tricks)
     return false;
 }
 
-function getTrickID($trickId)
-{
-    $db = connectDatabase();
-    $sqlQuery = "SELECT tricks.id FROM tricks WHERE id = :id";
-    $trickStatement = $db->prepare($sqlQuery);
-    $trickStatement->execute([
-        'id' => $trickId
-    ]);
 
-    return $trickStatement->fetchAll();
-}
-
+//fonction créée récupérer une trick en fonction de son ID.
 function getTrickByID($trickId)
 {
     $db = connectDatabase();
@@ -207,7 +218,7 @@ function getTrickByID($trickId)
     return $trickStatement->fetch();
 }
 
-
+//fonction créée afin de supprimer.
 function deleteTrick($trickId)
 {
     $trick = getTrickByID($trickId);
@@ -223,7 +234,7 @@ function deleteTrick($trickId)
     return false;
 }
 
-
+//fonction créée pour récupérer les commentaires en fonction de l'ID de la trick.
 /**
  * @param int $trickId
  * @return Remark[]|false
@@ -239,22 +250,23 @@ function getRemarksByTrickId(int $trickId)
     return $remarksStatement->fetchAll(PDO::FETCH_CLASS, Remark::class);
 }
 
-
+//fonction créée pour rechercher un utilisateur en fonction de son email.
 function findUserByEmail($mail)
 {
     $db = connectDatabase();
     $sqlQuery = "SELECT *  FROM users WHERE mail = :mail LIMIT 1";
-
     $connexionStatement = $db->prepare($sqlQuery);
-
     $connexionStatement->execute([
         'mail' => $mail
     ]);
 
     return $connexionStatement->fetch();
 
-};
+}
 
+;
+
+//fonction créée pour récupérer les médias en fonction de la trick.
 function getMediabyTrick($trickId)
 {
     $db = connectDatabase();
@@ -267,14 +279,13 @@ function getMediabyTrick($trickId)
 
 }
 
+//fonction créée pour modifier une trick.
+//Pour cela les médias précèdents sont supprimées avant d'en insérer des nouveaux.
 function modifyTrick($id, $name, $description, $mainPhoto, $idGroup, $youtubes)
 {
-
-    if(empty($mainPhoto))
-    {
+    if (empty($mainPhoto)) {
         $trick = getTrickByID($id);
         $mainPhoto = $trick['main_photo'];
-
     }
 
     $db = connectDatabase();
@@ -297,6 +308,10 @@ function modifyTrick($id, $name, $description, $mainPhoto, $idGroup, $youtubes)
         createMedia(null, $youtube, $id, "youtube");
     }
 }
+
+
+
+
 
 
 

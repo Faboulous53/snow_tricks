@@ -22,22 +22,15 @@ if(!empty($_POST)){
 // formulaire complet
 // on récupère les données et les protèges
 
-        convertImage();
-
-        $lastName = htmlentities($_POST["last_name"]);
-        $firstName = htmlentities($_POST["first_name"]);
-        $userName = htmlentities($_POST["username"]);
-        $mail = htmlentities($_POST["mail"]);
+        uploadImage();
         $password = htmlentities($_POST["password"]);
-        $picture = htmlentities($_FILES['picture']['name']);
-
         if(!filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL)) {
             die("L'adresse mail n'est pas valide");
         }
 
         $password = password_hash($_POST["password"], PASSWORD_ARGON2ID);
 
-        createUser($lastName, $firstName, $userName, $mail, $password, $picture);
+        createUser(htmlentities($_POST["last_name"]), htmlentities($_POST["first_name"]), htmlentities($_POST["username"]), htmlentities($_POST["mail"]),$password, htmlentities($_FILES['picture']['name']));
 
         echo ("
         <div class='container container-inscription'>

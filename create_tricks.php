@@ -19,10 +19,11 @@ if (!empty($_POST)) {
     }else{
         uploadImage();
 
-        createTrickById($_POST["name"],
-                        $_POST["description"],
-                        $_FILES["picture"]['name'],
-                        $_POST["tricks_group_id"],
+        createTrickById(
+                        strip_tags($_POST["name"]),
+                        strip_tags($_POST["description"]),
+                        strip_tags($_FILES["picture"]['name']),
+                        strip_tags($_POST["tricks_group_id"]),
                         $_POST["youtube"]);
 
 

@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start(); ?>
 <?php include_once('./include/fonctions.php') ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -10,36 +10,35 @@
 <?php include_once('./include/header.php') ?>
 <main>
 
-<?php
+    <?php
 
-$message = "Votre trick a bien été supprimé.";
-$deleted = deleteTrick($_GET['id']);
-if(!$deleted){
-    $message = "Impossible de supprimer le trick.";
-}
+    $message = "Votre trick a bien été supprimé.";
+    $deleted = deleteTrick($_GET['id']);
+    if (!$deleted) {
+        $message = "Impossible de supprimer le trick.";
+    }
 
 
- ?>
-    <br><br><br><br><br><br><br>
+    ?>
+    <section class="section-home">
         <div class='container container-inscription'>
             <div class='mb-3'>
                 <div class='section-home-content-inscription' style='text-align: center'>
-                <br>
+                    <br>
                     <h2><?= $message; ?></h2>
+                    <img style="max-width: 400px; margin-right:60px " src="images/snow1.png" alt="">
                     <p>Vous allez être rediriger dans 5 secondes. </p>
                 </div>
-             </div>
+            </div>
         </div>
-        <script>
+    </section>
+    <script>
 
         setTimeout(function () {
             window.location = "index.php";
         }, 5000);
 
-    </script>   
-
-
-
+    </script>
 
 
 </main>

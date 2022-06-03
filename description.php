@@ -19,6 +19,11 @@ $medias = getMediabyTrick($id);
 <main>
     <body>
     <?php include_once('./include/header.php') ?>
+    <section class="section-title">
+        <div class="container principal-title">
+            <h1>Tricks en ligne!!</h1>
+        </div>
+    </section>
     <div class="container container-inscription">
 
 

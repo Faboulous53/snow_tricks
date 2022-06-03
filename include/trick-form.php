@@ -3,12 +3,12 @@
     <div class="mb-3">
         <label class="form-label" for="name">Nom du trick</label>
         <input class="form-control c" type="text" id=0"name" name="name"
-               value="<?= isset($trick) ? $trick['name'] : "" ?>">
+               value="<?= isset($trick) ? $trick['name'] : "" ?>" placeholder="Nom" required>
     </div>
     <div class="mb-3">
         <label class="form-label" for="description">Description</label>
         <textarea class="form-control" placeholder="Description du trick" id="description" rows="3"
-                  name="description"><?= isset($trick) ? $trick['description'] : "" ?></textarea>
+                  name="description" required><?= isset($trick) ? $trick['description'] : "" ?></textarea>
     </div>
 
 
@@ -33,9 +33,10 @@
     <?php endif; ?>
 
     <div class="mb-3">
-        <label class="form-label" for="formFile" class="form-label">Veuillez insérer la photo de remplacement:
-        </label><input class="form-control" type="file" id="picture" name="picture">
+        <label class="form-label" for="formFile" class="form-label">Veuillez insérer la photo (obligatoire):
+        </label><input class="form-control" type="file" id="picture" name="picture" required >
     </div>
+
     <div class="content-media">
         <div id="inputs-youtube">
         <button class="btn btn-primary" id="add-youtube" type="button">Ajouter vidéo Youtube</button>

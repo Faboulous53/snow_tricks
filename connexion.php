@@ -64,7 +64,8 @@ if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
                 </div>
              </div>
         </div>");
-    } echo (" <div class='container container-inscription'>
+    }
+    echo (" <div class='container container-inscription'>
             <div class='mb-3'>
                 <div class='section-home-content-inscription' style='text-align: center'>
                     <h2>Vous êtes connecté</h2>
@@ -73,8 +74,8 @@ if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
                     </a>
                 </div>
              </div>
-        </div>").
-    session_start();
+        </div>") .
+        session_start();
     $_SESSION["user"] = [
         "id" => $user["id"],
         "pseudo" => $user["username"],
@@ -89,37 +90,37 @@ if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
 
 <body>
 <main>
-<div class="container container-inscription">
+    <div style="max-height: 100%" class="container container-inscription">
 
-    <div class="structure">
-        <h1>Connexion</h1>
+        <div class="structure">
+            <h1>Connexion</h1>
+        </div>
+
+        <form action="connexion.php" style="text-align: center" method="POST">
+            <img class="img-connexion" src="images/login.png" alt="logo-login" width="100">
+            <br><br>
+            <div class="mb-3">
+                <label class="form-label" for="">Adresse mail</label>
+                <input type="email" class="form-control" id="email" name="mail"
+                       placeholder="Insérez votre mail">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="password">Mot de passe</label>
+                <input type="password" class="form-control" id="password" name="password"
+                       placeholder="mot de passe" required>
+            </div>
+            <div class="mb-3">
+                <a href="recoveryPassword/recovery-password.php">Mot de passe oublié?</a>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary" type="submit">Se connecter</button>
+            </div>
+
+
+        </form>
+
+
     </div>
-
-    <form action="connexion.php" style="text-align: center" method="POST">
-        <img class="img-connexion" src="images/login.png" alt="logo-login" width="100">
-        <br><br>
-        <div class="mb-3">
-            <label class="form-label" for="">Adresse mail</label>
-            <input type="email" class="form-control" id="email" name="mail"
-                   placeholder="Insérez votre mail">
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="password">Mot de passe</label>
-            <input type="password" class="form-control" id="password" name="password"
-                   placeholder="mot de passe" required>
-        </div>
-        <div class="mb-3">
-            <a href="recoveryPassword/recovery-password.php">Mot de passe oublié?</a>
-        </div>
-        <div class="mb-3">
-            <button class="btn btn-primary" type="submit">Se connecter</button>
-        </div>
-
-
-    </form>
-
-
-</div>
 </main>
 <?php include_once('./include/footer.php') ?>
 </body>

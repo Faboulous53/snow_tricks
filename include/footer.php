@@ -1,5 +1,15 @@
 <footer class="footer-distributed">
 
+    <div class="footer-left" style="">
+        <p>Delpierre Fabien </p>
+        <p>Snow-Tricks-project 2022</p>
+    </div>
+
+    <div class="footer-center" style="margin-bottom: 40px">
+        <h1>One.....Two.....TRICKS</h1>
+        <p>Ensemble pour la passion du Snowboard !</p>
+    </div>
+
     <div class="footer-right">
 
         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -8,26 +18,6 @@
         <a href="#"><i class="fa fa-github"></i></a>
 
     </div>
-
-    <div class="footer-left">
-
-        <p class="footer-links">
-            <a class="link-1" href="#">Home</a>
-
-            <a href="#">Blog</a>
-
-            <a href="#">Pricing</a>
-
-            <a href="#">About</a>
-
-            <a href="#">Faq</a>
-
-            <a href="#">Contact</a>
-        </p>
-
-        <p>Company Name &copy; 2015</p>
-    </div>
-
 </footer>
 
 <aside class="back-to-top">

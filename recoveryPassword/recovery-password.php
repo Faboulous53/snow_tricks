@@ -11,53 +11,7 @@
     <title>Récupération MDP</title>
 </head>
 <body>
-<header id="main-header">
-    <div class="container">
-        <div class="container-header">
-            <a href="index.php">
-                <img src="../images/logo.png" alt="Snowtricks" class="logo">
-            </a>
-            <div class="container-header-right">
-                <nav class="main-navigation">
-                    <ul>
-                        <li>
-                            <a href="index.php">
-                                Annuaire des figures
-                            </a>
-                        </li>
-                        <li class="sub-menu">
-                            <a href="">
-                                Gestion des tricks
-                            </a>
-                            <ul>
-                                <li>
-                                    <a href="create_tricks.php">Ajouter un tricks</a>
-                                </li>
-                                <li>
-                                    <a href="">Modifier un tricks</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="inscription.php">
-                                Inscription
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                    <nav class="user-navigation">
-                        <ul>
-                            <li>
-                                <a href="connexion.php" class="btn btn-primary">
-                                    connexion
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-            </div>
-        </div>
-    </div>
-</header>
+<?php include_once('../include/header.php') ?>
 
 <div class="container container-inscription">
 

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="container-header">
             <a href="index.php">
-                <img src="images/logo.png" alt="Snowtricks" class="logo">
+                <img src="../images/logo.png" alt="Snowtricks" class="logo">
             </a>
             <div class="container-header-right">
                 <nav class="main-navigation">
