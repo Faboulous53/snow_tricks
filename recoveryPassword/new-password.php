@@ -21,14 +21,12 @@
     </div>
 
     <?php
-    include_once('../include/fonctions.php');
 
-    if (!empty($_GET['u']) && !empty($_GET['rp_token'])) {
+
+    if (empty($_GET['u']) && !empty($_GET['rp_token'])) {
 
     $rp_token = strip_tags($_GET['rp_token']);
-
     $db = connectDatabase();
-
     $sqlQuery = "SELECT * FROM users WHERE rp_token = ?";
     $forgotStatement = $db->prepare($sqlQuery);
     $forgotStatement->execute(array($rp_token));

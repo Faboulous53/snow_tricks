@@ -36,6 +36,8 @@
 <section class="section-title">
     <div class="container principal-title">
         <h1>Tricks en ligne!!</h1>
+        <br>
+        <p>Site communautaire afin de partager la passion du snowboard!</p>
     </div>
 </section>
 

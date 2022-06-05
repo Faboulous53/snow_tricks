@@ -1,3 +1,4 @@
+
 <footer class="footer-distributed">
 
     <div class="footer-left" style="">
@@ -7,7 +8,6 @@
 
     <div class="footer-center" style="margin-bottom: 40px">
         <h1>One.....Two.....TRICKS</h1>
-        <p>Ensemble pour la passion du Snowboard !</p>
     </div>
 
     <div class="footer-right">

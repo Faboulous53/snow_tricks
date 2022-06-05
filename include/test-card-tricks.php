@@ -1,7 +1,7 @@
 <?php include_once('./include/fonctions.php') ?>
 <section class="section">
     <div class="container">
-        <div class="agents-list">
+        <div class="tricks-list">
 
             <?php foreach (getTricks() as $tricks) : ?>
 

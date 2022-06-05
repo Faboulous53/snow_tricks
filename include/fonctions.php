@@ -76,6 +76,25 @@ function createUser($lastName, $firstName, $userName, $mail, $password, $picture
     ]);
 }
 
+function getCurrentUser()
+
+{
+
+    if (isset($_SESSION['user'])) {
+        $db = connectDatabase();
+        $sqlQuery = "SELECT users.id, users.last_name, users.first_name, users.username,
+        users.mail, users.picture  
+        FROM users 
+        WHERE id = :id";
+
+        $currentUserStatement = $db->prepare($sqlQuery);
+        $currentUserStatement->execute(["id" => $_SESSION['user'] ["id"]]);
+        return $currentUserStatement->fetch();
+    }
+    return false;
+
+}
+
 //fonction créée trouver un utilisateur en fonction de l'utilisateur afin de générer
 // un message d'erreur en cas d'email introuvable.
 function findUser($mail)
@@ -309,6 +328,24 @@ function modifyTrick($id, $name, $description, $mainPhoto, $idGroup, $youtubes)
     }
 }
 
+
+function InsertComment($content, $id_user, $id_tricks)
+
+{
+    $db = connectDatabase();
+    $sqlQuery = "INSERT INTO remarks ( content, create_at, id_user, id_tricks) 
+    VALUES (:content, now(), :id_user, :id_tricks)";
+
+    $commentStatement = $db->prepare($sqlQuery);
+
+    return $commentStatement->execute([
+        'content' => $content,
+        'id_user' => $id_user,
+        'id_tricks' => $id_tricks,
+    ]);
+
+
+}
 
 
 

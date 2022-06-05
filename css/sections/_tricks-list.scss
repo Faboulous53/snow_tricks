@@ -1,21 +1,11 @@
 @use '../abstracts/mixins';
 @use '../abstracts/variables';
 
-.badge {
-  background-color: #ff6922;
-  color: white;
-  width: 80px;
-  border-radius: 20px;
-  padding: 10px;
-  margin: 10px;
-  justify-content: start;
-}
-
-.agents-list {
+.tricks-list {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(3, 3fr);
-  gap: 5rem;
+  grid-template-columns: repeat(3, 0fr);
+  gap: 3rem;
 
 }
 
@@ -143,13 +133,13 @@ figure.snip0056.hover > img {
 
 ///////////////////////////////////
 @include mixins.desktop {
-  .agents-list {
+  .tricks-list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @include mixins.smartphone {
-  .agents-list {
+  .tricks-list {
     grid-template-columns: repeat(1, 1fr);
   }
 }

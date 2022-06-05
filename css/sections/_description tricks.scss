@@ -1,0 +1,163 @@
+.description-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Russo One', sans-serif;
+  color: white;
+  font-size: x-large;
+  font-weight: inherit;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  padding-top: 20px;
+
+}
+
+.container-description{
+  background: rgba(0, 0, 0, 0.6);
+  max-width: 1500px;
+  margin: 100px auto 100px auto;
+  padding-top: 10px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 25px;
+
+  h1 {
+    color: white;
+  }
+  p{
+    font-size: 23px;
+  }
+}
+
+
+.container-media{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 1em;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.no-log{
+  display: flex;
+  color: white;
+  max-width: 80%;
+  text-align: center;
+  padding: 0 80px 80px 80px;
+  margin: 100px auto auto auto;
+
+}
+
+////
+
+.is-log {
+  background: rgba(0, 0, 0, 0.6);
+  padding-top: 10px;
+  max-width: 100%;
+  height: 300px ;
+  border-radius: 15px;
+  margin-bottom: 20px;
+
+
+
+  h2 {
+    color:white;
+    text-align: center;
+  }
+
+}
+.block-user {
+  margin-bottom: 10px;
+  margin-left: 70px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 800px;
+  align-items: unsafe center;
+
+  p {
+    order: 2;
+    color: white;
+    font-size: 30px;
+
+  }
+
+  .user-img {
+    order: 1;
+    position: relative;
+    border: 6px solid #0087b8;
+    border-radius: 50%;
+    padding: 0.5rem;
+    width: 150px;
+    height: 150px;
+
+    .user-photo {
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+}
+
+.comment{
+  color: white;
+  position: absolute;
+  flex-direction: column;
+  width: 500px ;
+  height: 230px;
+  padding-left: 5px;
+  text-align: center;
+  margin-left: 290px;
+  margin-top: 5px;
+  justify-items: center;
+
+
+
+  label{
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+  textarea{
+    margin-bottom: 18px;
+  }
+  button{
+   margin-left: 300px;
+  }
+
+
+}
+
+.container-comment{
+  background: rgba(0, 0, 0, 0.6);
+  max-width: 1500px;
+  margin: 100px auto 100px auto;
+  padding-top: 10px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 25px;
+}
+
+.block-comment{
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-start;
+
+}
+
+
+
+
+
+

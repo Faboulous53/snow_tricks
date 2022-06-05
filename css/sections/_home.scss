@@ -12,14 +12,12 @@
         h1 {
             font-size: 3rem;
         }
+        h2 {
+            font-size: 3rem;
+        }
     }
 }
 
-.section-title {
-    display: flex;
-    height: 20vh;
-
-}
 
 .principal-title{
     display: flex;
@@ -29,6 +27,9 @@
     color: black;
     font-size: x-large;
     font-weight: inherit;
+    flex-direction: column;
 
 }
+
+
 
