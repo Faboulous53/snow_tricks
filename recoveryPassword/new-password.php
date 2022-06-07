@@ -23,7 +23,7 @@
     <?php
 
 
-    if (empty($_GET['u']) && !empty($_GET['rp_token'])) {
+    if (!empty($_GET['rp_token'])) {
 
     $rp_token = strip_tags($_GET['rp_token']);
     $db = connectDatabase();

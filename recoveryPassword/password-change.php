@@ -1,6 +1,6 @@
 <?php
 include_once('../include/fonctions.php');
-
+$messageErreur= "Les mots de passe ne correspondent pas.";
 
 
 if (!empty($_POST['password']) && !empty($_POST['password_repeat']) && !empty($_POST['rp_token'])) {
@@ -29,16 +29,16 @@ if (!empty($_POST['password']) && !empty($_POST['password_repeat']) && !empty($_
                 header("location:../index.php?msg=1");
 
             } else {
-                echo "Les mots de passes ne sont pas identiques";
+                $messageErreur = "Les mots de passes ne sont pas identiques";
             }
         } else {
-            echo "Compte non existant";
+            $messageErreur= "Compte non existant";
         }
     }
 
 else {
 
-        echo "Merci de renseigner un mot de passe";
+        $messageErreur = "Merci de renseigner un mot de passe";
     }
 ?>
 
@@ -55,27 +55,19 @@ else {
 </head>
 <body>
 <?php include_once('../include/header.php') ?>
-
+<?php if (isset($messageErreur)): ?>
 <div class="container container-inscription">
+    <div class="alert alert-danger" role="alert" style="max-width: 80%; max-height: 300px">
+        <p><?= $messageErreur; ?></p>
 
-    <div class="structure">
-        <h1>Réinitialisation mot de passe</h1>
+        <a href="../index.php"><button class="btn btn-primary">Retourner à l'accueil</button></a>
     </div>
 
-    <form action="create_token.php" style="text-align: center" method="POST">
-        <img class="img-connexion" src="../images/password.png" alt="logo-forgot" width="100">
-        <br><br>
-        <div class="mb-3">
-            <label class="form-label" for="">Adresse mail</label>
-            <input type="email" class="form-control" id="mail" name="mail"
-                   placeholder="Insérez votre mail">
-        </div>
-        <div class="mb-3">
-            <button class="btn btn-primary" type="submit">envoyer</button>
-        </div>
+    <?php endif; ?>
 
 
-    </form>
+
+
 
 
 </div>

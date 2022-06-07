@@ -7,8 +7,6 @@
 <?php
 $id = $_GET['id'];
 
-
-
 if (!empty($_POST)) {
     if (isset($_POST["name"], $_POST["description"])
         && !empty($_POST["name"])
