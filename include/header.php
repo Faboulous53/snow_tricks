@@ -16,7 +16,7 @@
                         </li>
                         <li class="sub-menu">
                             <?php if (isLogged()): ?>
-                            <a href="properties.html">
+                            <a href="">
                                 Gestion des tricks
                             </a>
                             <ul>

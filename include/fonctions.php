@@ -254,19 +254,25 @@ function deleteTrick($trickId)
 }
 
 //fonction créée pour récupérer les commentaires en fonction de l'ID de la trick.
-/**
- * @param int $trickId
- * @return Remark[]|false
- */
+///**
+// * @param int $trickId
+// * @return Remark[]|false
+// */
 function getRemarksByTrickId(int $trickId)
 {
     $db = connectDatabase();
-    $sqlQuery = "SELECT id, content, create_at AS createAt FROM remarks WHERE id_tricks = :id";
+    $sqlQuery =
+    "SELECT remarks.id, remarks.content, remarks.create_at AS createAt, id_user, users.username, users.picture 
+    FROM remarks 
+    INNER JOIN users ON users.id = remarks.id_user
+    WHERE id_tricks = :id
+    ORDER BY create_at DESC LIMIT 10";
     $remarksStatement = $db->prepare($sqlQuery);
     $remarksStatement->execute([
         'id' => $trickId
     ]);
-    return $remarksStatement->fetchAll(PDO::FETCH_CLASS, Remark::class);
+//    return $remarksStatement->fetchAll(PDO::FETCH_CLASS, Remark::class);
+    return $remarksStatement->fetchAll();
 }
 
 //fonction créée pour rechercher un utilisateur en fonction de son email.
@@ -329,19 +335,19 @@ function modifyTrick($id, $name, $description, $mainPhoto, $idGroup, $youtubes)
 }
 
 
-function InsertComment($content, $id_user, $id_tricks)
+function InsertComment($content, $id_user, $trickId)
 
 {
     $db = connectDatabase();
     $sqlQuery = "INSERT INTO remarks ( content, create_at, id_user, id_tricks) 
-    VALUES (:content, now(), :id_user, :id_tricks)";
+    VALUES (:content, now(), :id_user, :id_tricks) ";
 
     $commentStatement = $db->prepare($sqlQuery);
 
     return $commentStatement->execute([
         'content' => $content,
         'id_user' => $id_user,
-        'id_tricks' => $id_tricks,
+        'id_tricks' => $trickId,
     ]);
 
 

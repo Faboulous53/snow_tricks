@@ -4,9 +4,6 @@
 <html lang="fr">
 <head>
     <?php include_once('./include/head.php') ?>
-<!--    --><?php //if( $_POST['password'] != $_POST['confirm-password']){
-//        echo ("")
-//    }; ?>
 
     <title>Inscription</title>
 </head>
@@ -53,6 +50,7 @@
         <a href="connexion.php">se connecter</a>
     </form>
 </div>
+
 <?php include_once('./include/footer.php') ?>
 </body>
 </html>

@@ -1,72 +1,28 @@
 @use '../abstracts/variables';
 @use '../abstracts/mixins';
-
+#main-footer{
+  background-color: rgba(0 , 0, 0, 0.6);
+}
 
 footer {
-
-  bottom: 0;
-}
-
-#main-footer {
   width: 100%;
-  height: 120px;
-  padding: 0.1rem 0;
-  background-color: white;
-  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  box-sizing: border-box;
 }
 
-.logo {
-  max-width: 140px;
-  margin-top: 20px;
-
-}
 
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
-
-
-
-.footer-distributed {
-  background: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-  box-sizing: border-box;
-  width: 100%;
-  text-align: left;
-  font: normal 16px sans-serif;
-  height: 150px;
-  bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
+.footer-distributed{
+  margin-top: 500px;
 }
 
+
 .footer-distributed .footer-left p {
-  font-family: "Russo One";
-  color: #1f7b9e;
+  color: #8f9296;
   font-size: 14px;
   margin: 0;
 }
-
-.footer-center{
-  font-family: 'Audiowide', cursive;
-  font-size: 26px;
-  color: #1f7b9e;
-  text-align: center;
-  margin-top: 30px;
-  padding-bottom: 0;
-
-}
-
-.footer-left{
-  margin-left: 200px;
-}
-
-.footer-right{
-  margin-right: 200px;
-}
-
-
 /* Footer links */
 
 .footer-distributed p.footer-links {
@@ -109,10 +65,10 @@ footer {
   display: inline-block;
   width: 35px;
   height: 35px;
-  background-color: #1f7b9e;
+  background-color: #33383b;
   border-radius: 2px;
   font-size: 20px;
-  color: white;
+  color: #ffffff;
   text-align: center;
   line-height: 35px;
   margin-left: 3px;
@@ -126,14 +82,14 @@ footer {
 /* Media Queries */
 
 @media (max-width: 600px) {
-  .footer-distributed .footer-left, .footer-distributed .footer-right .footer-center{
+  .footer-distributed .footer-left, .footer-distributed .footer-right {
     text-align: center;
   }
-  .footer-distributed .footer-right  {
+  .footer-distributed .footer-right {
     float: none;
     margin: 0 auto 20px;
   }
-  .footer-distributed .footer-left p.footer-links .footer-center{
+  .footer-distributed .footer-left p.footer-links {
     line-height: 1.8;
   }
 }

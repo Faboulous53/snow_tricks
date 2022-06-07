@@ -1,5 +1,4 @@
 <?php include_once('./include/fonctions.php') ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,6 +7,7 @@
 </head>
 <?php include_once('./include/header.php') ?>
 <?php
+
 if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
     && !empty($_POST["mail"])
     && !empty($_POST["password"])) {
