@@ -40,14 +40,19 @@ if(!empty($_POST)){
 // on récupère les données et les protèges
 
         uploadImage();
-        $password = htmlentities($_POST["password"]);
+        $password = strip_tags($_POST["password"]);
         if(!filter_var($_POST["mail"], FILTER_VALIDATE_EMAIL)) {
             die("L'adresse mail n'est pas valide");
         }
-
         $password = password_hash($_POST["password"], PASSWORD_ARGON2ID);
+        $lastName = strip_tags($_POST["last_name"]);
+        $firstName = strip_tags($_POST["first_name"]);
+        $userName = strip_tags($_POST["username"]);
+        $mail = strip_tags($_POST["mail"]);
+        $picture = strip_tags($_FILES['picture']['name']);
 
-        createUser(htmlentities($_POST["last_name"]), htmlentities($_POST["first_name"]), htmlentities($_POST["username"]), htmlentities($_POST["mail"]),$password, htmlentities($_FILES['picture']['name']));
+
+        createUser($lastName, $firstName, $userName, $mail,$password, $picture);
 
         echo ("
         <div class='container container-inscription'>

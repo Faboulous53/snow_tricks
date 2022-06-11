@@ -19,7 +19,7 @@
             <?php foreach (getTricksGroup() as $tricksGroup) : ?>
                 <option value="<?= ($tricksGroup["id"]); ?>"
                     <?= isset($trick) && $trick['id_tricks_group'] === $tricksGroup["id"] ? "selected" : "" ?>>
-                    <?= htmlentities($tricksGroup['name']); ?>
+                    <?= strip_tags($tricksGroup['name']); ?>
                 </option>
             <?php endforeach; ?>
 

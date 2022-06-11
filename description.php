@@ -39,7 +39,7 @@ if (!empty($_POST)) {
 <body>
 <main>
     <?php include_once('./include/header.php') ?>
-    <section>
+    <section class="-comments">
         <div style="margin-top: 80px" class="container description-title">
             <h2>Présentation de la trick:</h2>
             <h1><i class="fa fa-snowflake-o" aria-hidden="true"></i>
@@ -49,7 +49,7 @@ if (!empty($_POST)) {
         </div>
         <?php if (isset($message) && !empty($message)): ?>
             <div class="container alert alert-success" role="alert"
-                 style="text-align:center; max-width: 30%; max-height: 100px">
+                 style="text-align:center; max-width: 30%; max-height: 100px; font-size: 20px">
                 <p><?= $message; ?></p>
             </div>
             <script>
@@ -83,6 +83,7 @@ if (!empty($_POST)) {
         </div>
     </section>
 
+
     <section style="max-height: 1080px">
 
         <?php if (!isLogged()): ?>
@@ -109,8 +110,8 @@ if (!empty($_POST)) {
                     <div class="comment">
                         <form class="comment1" action="description.php?id=<?= $trick[0]; ?>" method="post">
                             <label for="remark" hidden></label>
-                            <textarea placeholder="Votre commentaire" name="remark" id="remark" cols="80"
-                                      rows="7"></textarea><br>
+                            <textarea placeholder="Votre commentaire (max 220 caractères)" name="remark" id="remark" cols="80"
+                                      rows="7" maxlength ="220"></textarea><br>
                             <button class="btn btn-primary" type="submit">Envoyer</button>
                         </form>
                     </div>
@@ -129,10 +130,10 @@ if (!empty($_POST)) {
                     <div class="user-img">
                         <img class="user-photo" src="./images/<?= $remark['picture']; ?>"
                              alt="<?= $remark['picture']; ?>">
-                    </div>
+                                        </div>
                     <p><?= $remark['username']; ?></p>
                 </div>
-                <div class="comment">
+                <div class="comment-content">
                     <p><?= $remark['content'] ?></p>
                 </div>
 

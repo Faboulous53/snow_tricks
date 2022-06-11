@@ -7,8 +7,6 @@
 //
 //    private string $createAt;
 //
-//    private int $user;
-//
 //
 //    /**
 //     * @return string
@@ -46,10 +44,7 @@
 //     * @param int $user
 //     */
 //
-//    public function getUser(string $user): int
-//    {
-//        $this->user = $user;
-//    }
+//
 //
 //
 //}

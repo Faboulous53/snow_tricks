@@ -1,5 +1,5 @@
 
-<footer id="main-footer" class="footer-distributed" style="margin-top: 500px " >
+<footer id="main-footer" class="footer-distributed" style="margin-top: 1300px " >
     <div class="container">
         <div class="footer-left" style="">
             <p>Delpierre Fabien </p>

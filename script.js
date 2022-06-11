@@ -3,7 +3,7 @@ const containerInputYoutube = document.getElementById("inputs-youtube");
 const btnsDelete = document.querySelectorAll(".btn-delete");
 const deleteVideo = function (event)
 {
-    event.target.parentElement.remove();
+    event.target.parentElement.remove("youtubeContent");
 }
 
 

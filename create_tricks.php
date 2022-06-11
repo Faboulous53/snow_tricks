@@ -19,6 +19,12 @@ if (!empty($_POST)) {
     }else{
         uploadImage();
 
+
+
+
+
+
+
         createTrickById(
                         strip_tags($_POST["name"]),
                         strip_tags($_POST["description"]),

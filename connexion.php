@@ -11,7 +11,7 @@
 if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
     && !empty($_POST["mail"])
     && !empty($_POST["password"])) {
-    $mail = htmlentities($_POST["mail"]);
+    $mail = strip_tags($_POST["mail"]);
     if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
         die("<div class='container container-inscription'>
             <div class='mb-3'>
@@ -125,3 +125,11 @@ if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
 <?php include_once('./include/footer.php') ?>
 </body>
 </html>
+<?=
+$youWant = "become a developer";
+$dream = " I will do it";
+if($youWant = $dream)
+{
+echo "let's go !!!";
+}
+?>

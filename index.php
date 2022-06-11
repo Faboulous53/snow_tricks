@@ -28,7 +28,7 @@
             <?php else: ?>
             <?php endif ?>
             <?php if (isLogged()): ?>
-                <div class="alert alert-success" role="alert" style="max-width: 20%; max-height: 80px">
+                <div class="alert alert-success" role="alert" style="max-width: 30%; max-height: 80px; box-sizing: border-box">
                     <?= 'Bonjour ' . $_SESSION['user']["last_name"] . " " . $_SESSION['user']["first_name"] . " " . "!" ?>
                     <p>Vous êtes connecté(e).</p>
                 </div>

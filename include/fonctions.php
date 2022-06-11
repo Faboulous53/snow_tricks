@@ -225,7 +225,8 @@ function getTrickByID($trickId)
 {
     $db = connectDatabase();
     $sqlQuery = "
-    SELECT tricks.* , users.*, tricks_group.name AS tricks_group_name FROM tricks
+    SELECT tricks.* , users.last_name, users.username, users.picture, users.first_name, tricks_group.name AS tricks_group_name 
+    FROM tricks
     INNER JOIN users ON tricks.id_user = users.id 
     INNER JOIN tricks_group on tricks.id_tricks_group = tricks_group.id 
     WHERE tricks.id = :id";
@@ -254,16 +255,16 @@ function deleteTrick($trickId)
 }
 
 //fonction créée pour récupérer les commentaires en fonction de l'ID de la trick.
-///**
-// * @param int $trickId
-// * @return Remark[]|false
-// */
+/**
+ * @param int $trickId
+ * @return Remark[]|false
+ */
 function getRemarksByTrickId(int $trickId)
 {
     $db = connectDatabase();
     $sqlQuery =
-    "SELECT remarks.id, remarks.content, remarks.create_at AS createAt, id_user, users.username, users.picture 
-    FROM remarks 
+    "SELECT remarks.id, remarks.content, remarks.create_at AS createAt, id_user, users.username, users.picture
+    FROM remarks
     INNER JOIN users ON users.id = remarks.id_user
     WHERE id_tricks = :id
     ORDER BY create_at DESC LIMIT 10";
@@ -352,6 +353,8 @@ function InsertComment($content, $id_user, $trickId)
 
 
 }
+
+
 
 
 

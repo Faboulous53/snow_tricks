@@ -2,7 +2,6 @@
 include_once('../include/fonctions.php');
 $messageErreur= "Les mots de passe ne correspondent pas.";
 
-
 if (!empty($_POST['password']) && !empty($_POST['password_repeat']) && !empty($_POST['rp_token'])) {
     $password = strip_tags($_POST['password']);
     $password_repeat = strip_tags($_POST['password_repeat']);
@@ -21,7 +20,6 @@ if (!empty($_POST['password']) && !empty($_POST['password_repeat']) && !empty($_
             if ($password === $password_repeat) {
                 $cost = ['cost' => 12];
                 $password = password_hash($_POST["password"], PASSWORD_ARGON2ID);
-
                 $update = $db->prepare('UPDATE users SET password = ? WHERE rp_token = ?');
                 $update->execute(array($password, $rp_token));
                 $confirmPassword = false;
