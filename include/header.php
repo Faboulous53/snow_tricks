@@ -3,14 +3,14 @@
 <header id="main-header">
     <div class="container">
         <div class="container-header">
-            <a href="index.php">
+            <a href="../index.php">
                 <img src="../images/logo.png" alt="Snowtricks" class="logo">
             </a>
             <div class="container-header-right">
                 <nav class="main-navigation">
                     <ul>
                         <li>
-                            <a href="list-tricks.php">
+                            <a href="../list-tricks.php">
                                 Annuaire des figures
                             </a>
                         </li>
@@ -21,26 +21,28 @@
                             </a>
                             <ul>
                                 <li>
-                                    <a href="create_tricks.php">Créer un tricks</a>
+                                    <a href="../create_tricks.php">Créer un tricks</a>
                                 </li>
                                 <li>
-                                    <a href="">Mes tricks</a>
+                                    <a href="../user-tricks.php?id=">Mes tricks</a>
                                 </li>
                             </ul>
                             <?php endif ?>
                         </li>
+                        <?php if (!isLogged()): ?>
                         <li>
                             <a href="inscription.php">
                                 Inscription
                             </a>
                         </li>
+                        <?php endif ?>
                     </ul>
                 </nav>
                 <?php if (isLogged()): ?>
                 <nav class="user-navigation">
                     <ul>
                         <li>
-                            <a href="logout.php" class="btn btn-primary">
+                            <a href="../logout.php" class="btn btn-primary">
                                 Se Déconnecter
                             </a>
                         </li>
@@ -50,7 +52,7 @@
                 <nav class="user-navigation">
                     <ul>
                         <li>
-                            <a href="connexion.php" class="btn btn-primary">
+                            <a href="../connexion.php" class="btn btn-primary">
                                 connexion
                             </a>
                         </li>

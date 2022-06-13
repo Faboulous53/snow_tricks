@@ -8,6 +8,7 @@ footer {
   width: 100%;
   text-align: center;
   box-sizing: border-box;
+
 }
 
 
@@ -15,9 +16,8 @@ footer {
 
 
 
-
 .footer-distributed .footer-left p {
-  color: #8f9296;
+  color: white;
   font-size: 14px;
   margin: 0;
 }
@@ -54,20 +54,20 @@ footer {
 }
 
 .footer-distributed .footer-right {
-  float: right;
-  margin-top: 6px;
+
   max-width: 180px;
+  margin-left: 860px;
+  margin-bottom: 20px;
 }
 
 .footer-distributed .footer-right a {
   display: inline-block;
   width: 35px;
   height: 35px;
-  background-color: #33383b;
+  background-color: #008cc0;
   border-radius: 2px;
   font-size: 20px;
   color: #ffffff;
-  text-align: center;
   line-height: 35px;
   margin-left: 3px;
   transition:all .25s;

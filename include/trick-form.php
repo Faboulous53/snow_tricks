@@ -34,26 +34,23 @@
 
     <div class="mb-3">
         <label class="form-label" for="formFile" class="form-label">Veuillez insérer la photo (obligatoire):
-        </label><input class="form-control" type="file" id="picture" name="picture" required >
+        </label><input class="form-control" type="file" id="picture" name="picture" required>
     </div>
 
     <div class="content-media">
         <div id="inputs-youtube">
-        <button class="btn btn-primary" id="add-youtube" type="button">Ajouter vidéo Youtube</button>
+            <button class="btn btn-primary" id="add-youtube" type="button">Ajouter vidéo Youtube</button>
 
 
-            <?php    if (isset($medias)):?>
+            <?php if (isset($medias)): ?>
 
-                <?php foreach ($medias as $media ) : ?>
+                <?php foreach ($medias as $media) : ?>
 
-                        <?= $media['html']; ?>
+                    <?= $media['html']; ?>
 
-    <input type="hidden" name="youtube[]" value='<?= $media['html']; ?>'>
+                    <input type="hidden" name="youtube[]" value='<?= $media['html']; ?>'>
 
-    <button class="btn-delete">Supprimer</button>
-
-
-
+                    <button class="btn-delete">Supprimer</button>
 
                 <?php endforeach; ?>
             <?php endif; ?>
@@ -71,3 +68,6 @@
 
 </form>
 <script src="script.js"></script>
+
+
+

@@ -27,7 +27,8 @@ if($_POST["password"] !== $_POST['confirm-password'])
 }
 
 if(!empty($_POST)){
-    if(isset($_POST["last_name"], $_POST["first_name"], $_POST["username"], $_POST["mail"], $_POST["password"], $_POST["confirm-password"],$_FILES["picture"]['name'])
+    if(isset($_POST["last_name"], $_POST["first_name"], $_POST["username"],
+             $_POST["mail"], $_POST["password"], $_POST["confirm-password"],$_FILES["picture"]['name'])
         && !empty($_POST["last_name"])
         && !empty($_POST["first_name"])
         && !empty($_POST["username"])
@@ -66,6 +67,7 @@ if(!empty($_POST)){
              </div>
         </div>      
         ");
+
 
     }else{
         echo("

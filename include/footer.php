@@ -1,7 +1,7 @@
 
 <footer id="main-footer" class="footer-distributed" >
-<div class="container">
-    <div class="footer-left" style="">
+
+    <div class="footer-left">
         <p>Delpierre Fabien </p>
         <p>Snow-Tricks-project 2022</p>
     </div>
@@ -11,12 +11,13 @@
     </div>
 
     <div class="footer-right">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-github"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+
     </div>
-</div>
+
 </footer>
 
 <aside class="back-to-top">

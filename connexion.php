@@ -1,4 +1,5 @@
 <?php include_once('./include/fonctions.php') ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,6 +8,7 @@
 </head>
 <?php include_once('./include/header.php') ?>
 <?php
+session_start();
 
 if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
     && !empty($_POST["mail"])
@@ -23,6 +25,7 @@ if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
                 </div>
              </div>
         </div>");
+
     }
     if (!$mail) {
         die("<div class='container container-inscription'>
@@ -48,6 +51,7 @@ if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
                 </div>
              </div>
         </div>");
+
     }
 
     $password = password_hash($_POST["password"], PASSWORD_ARGON2ID);
@@ -74,8 +78,8 @@ if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
                     </a>
                 </div>
              </div>
-        </div>") .
-        session_start();
+        </div>") ;
+
     $_SESSION["user"] = [
         "id" => $user["id"],
         "pseudo" => $user["username"],
@@ -85,6 +89,7 @@ if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
     ];
     header("location:index.php");
 }
+
 ?>
 
 
@@ -124,12 +129,4 @@ if (!empty($_POST) && isset($_POST["mail"], $_POST["password"])
 </main>
 <?php include_once('./include/footer.php') ?>
 </body>
-</html>
-<?=
-$youWant = "become a developer";
-$dream = " I will do it";
-if($youWant = $dream)
-{
-echo "let's go !!!";
-}
-?>
+

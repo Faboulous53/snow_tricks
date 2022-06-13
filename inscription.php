@@ -11,6 +11,7 @@
 <?php include_once('./include/header.php') ?>
 <div class="container container-inscription">
     <h1 style="text-align: center">S'inscrire sur le site</h1>
+
     <form action="submit-inscription.php" style="text-align: center" method="POST"
           enctype="multipart/form-data">
         <div class="mb-3">

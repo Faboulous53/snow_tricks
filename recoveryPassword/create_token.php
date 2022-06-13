@@ -4,7 +4,6 @@ include_once('../include/variables.php');
 
 
 if (!empty($_POST['mail'])) {
-
     $mail = strip_tags($_POST['mail']);
     $user = findUserByEmail($mail);
     $db = connectDatabase();

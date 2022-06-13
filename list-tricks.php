@@ -23,6 +23,8 @@
                 <th scope="col">Groupe</th>
                 <th scope="col">Créateur</th>
                 <th scope="col">Photo</th>
+                <th scope="col">Voir plus</th>
+
             </tr>
             </thead>
             <tbody>
@@ -34,6 +36,10 @@
                 <td><?= $tricks['name']; ?></td>
                 <td><?= $tricks['username']; ?></td>
                 <td><img width="70px" src="../images/<?= ($tricks['main_photo']) ?>" alt="><?= $tricks['main_photo']; ?>"</td>
+                <td><a href="description.php?id=<?= (int)($tricks['id']) ?>">
+                        <i style="font-size: 20px; margin-left:2rem;margin-top: 1rem; text-decoration: none ; color: #008cc0"
+                           class="fa fa-plus-circle" aria-hidden="true"></i>
+                    </a></td>
             </tr>
 
 

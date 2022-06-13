@@ -10,7 +10,7 @@ function connectDatabase()
     try {
         $db = new PDO('mysql:host=localhost;dbname=snow_tricks;charset=utf8', 'root', 'Not24get',
             [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_EMULATE_PREPARES => false,
+             PDO::ATTR_EMULATE_PREPARES => false,
             ]);
         return $db;
 
@@ -95,7 +95,7 @@ function getCurrentUser()
 
 }
 
-//fonction créée trouver un utilisateur en fonction de l'utilisateur afin de générer
+//fonction créée afin trouver un utilisateur en fonction de l'utilisateur afin de générer
 // un message d'erreur en cas d'email introuvable.
 function findUser($mail)
 {
@@ -205,6 +205,22 @@ function listTricksByUser()
               INNER JOIN tricks_group on tricks.id_tricks_group = tricks_group.id';
     $statement = $db->prepare($query);
     $statement->execute();
+    return $statement->fetchAll();
+}
+
+function UserTricks($userTrick)
+{
+    $db = connectDatabase();
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $query = 'SELECT tricks.*, tricks_group.name, users.username 
+              FROM `tricks` 
+              INNER JOIN users ON tricks.id_user = users.id 
+              INNER JOIN tricks_group on tricks.id_tricks_group = tricks_group.id
+              WHERE users.id = :id';
+    $statement = $db->prepare($query);
+    $statement->execute([
+        'id' => $userTrick
+    ]);
     return $statement->fetchAll();
 }
 

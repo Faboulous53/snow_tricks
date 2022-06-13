@@ -111,7 +111,7 @@ if (!empty($_POST)) {
                         <form class="comment1" action="description.php?id=<?= $trick[0]; ?>" method="post">
                             <label for="remark" hidden></label>
                             <textarea placeholder="Votre commentaire (max 220 caractères)" name="remark" id="remark" cols="80"
-                                      rows="7" maxlength ="220"></textarea><br>
+                                      rows="7" maxlength ="220" ></textarea><br>
                             <button class="btn btn-primary" type="submit">Envoyer</button>
                         </form>
                     </div>

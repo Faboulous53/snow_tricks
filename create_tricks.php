@@ -7,7 +7,6 @@
 <?php
 $formAction = "create_tricks.php";
 
-
 if (!empty($_POST)) {
 
     if (isset($_POST["name"], $_POST["description"], $_POST["tricks_group_id"], $_FILES["picture"]['name'])
@@ -18,12 +17,6 @@ if (!empty($_POST)) {
         $message = "une erreur est survenue";
     }else{
         uploadImage();
-
-
-
-
-
-
 
         createTrickById(
                         strip_tags($_POST["name"]),
@@ -53,8 +46,9 @@ if (!empty($_POST)) {
     <?php include_once('./include/trick-form.php') ?>
 
 </div>
-    <?php include_once('./include/footer.php') ?>
+
 </main>
+<?php include_once('./include/footer.php') ?>
 
 </body>
 
